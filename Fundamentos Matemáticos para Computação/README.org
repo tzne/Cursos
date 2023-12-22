@@ -3,7 +3,6 @@
 #+LANGUAGE: pt
 #+OPTIONS: date:nil
 
-\newpage
 * TOC :toc:
 - [[#matemática-discreta][Matemática discreta]]
   - [[#lógica][Lógica]]

@@ -4,7 +4,6 @@
 #+OPTIONS: date:nil
 
 Curso oferecido pela Universidade de São Paulo (USP)
-\newpage
  
 * Introdução à Ciência da Computação
 ** Semana 1
