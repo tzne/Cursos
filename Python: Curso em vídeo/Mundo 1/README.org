@@ -1,0 +1,158 @@
+* TOC :TOC:
+- [[#python-3-fundamentos][Python 3: Fundamentos]]
+  - [[#tipos-primitivos][Tipos primitivos]]
+  - [[#operadores-aritméticos][Operadores aritméticos]]
+  - [[#utilizando-módulos][Utilizando módulos]]
+    - [[#math][math]]
+    - [[#manipulando-texto][Manipulando texto]]
+  - [[#condições][Condições]]
+  - [[#cores-no-terminal][Cores no terminal]]
+
+* Python 3: Fundamentos
+[[./Certificação Curso em Vídeo: Python (Mundo 1).pdf][Certificado de conclusão]]
+#+begin_src phyton
+  print("Hello World")
+#+end_src
+
++ Em python, todos os comandos são *funções*
++ Variáveis são lidas com a função ~input~
+  + A função recebe uma string como argumento, que será exibida na hora de ler a variável
+  + Retorna uma *string*
+  #+begin_src python
+    nome = input("Qual o seu nome?")
+    idade = int(input("Qual a sua idade?"))
+  #+end_src
+** Tipos primitivos
++ Python possui 4 tipos primitivos
+  + ~int~: valores numéricos inteiros
+  + ~float~: valores numéricos de ponto flutuante (número real)
+  + ~bool~: =True= ou =False=
+  + ~str~: string
++ Um dado de qualquer tipo pode ser convertido com uma função com o nome do tipo a ser convertido
+  + Exemplo, uma string de caráter numérico pode ser convertida para um tipo inteiro com a função ~int()~
+    #+begin_src python 
+      idade = '18'
+      idade_inteiro = int(idade)
+    #+end_src
++ A função ~type()~ retorna o tipo de uma variável ou valor
+#+begin_src python
+  n = bool(input('Digite um valor: '))
+  print(n)
+#+end_src
++ Métodos de identificação de dados
+  + ~objeto.isnumeric()~: retorna =True= caso o objeto seja numérico
+  + ~objeto.isalpha()~: retorna =True= caso o objeto seja alfabético
+  + ~objeto.isalnum()~: retorna =True= caso o objeto seja alfab-numérico
+  + ~objeto.isupper()~: retorna =True= caso o objeto seja inteiro em letras MAIÚSCULAS
+  + ~objeto.islower()~: retorna =True= caso o objeto seja inteiro em letras minúsculas
+  + ~objeto.istitle()~: retorna =True= caso o objeto esteja Capitalizado
+  + ~objeto.isspace()~: retorna =True= caso o objeto seja formado apenas por espaços "   "
+** Operadores aritméticos
++ Operadores aritméticos
+  + ~+~: adição
+  + ~-~: subtração
+  + ~*~: multipliação
+  + ~/~: divisão
+  + ~**~: Potência
+  + Também possível utilizando a função ~pow(n1, n2)~
+    + Perde a ordem de precedência
+  + ~//~: Divisão inteira
+  + ~%~: Resto da divisão
++ Formatadores
+  + Dentro da função .format, é possível fazer com que ele
+    + Ocupe x caracteres (~{:x}~)
+    + Alinhe à direita (~{:>x}~)
+    + Alinhe à esquerda (~{:<x}~)
+    + Alinhe ao centro (~{:^x}~)
+    + Substitua espaços vazios por determinados caracteres (~{:-^20}~)
+    + Determianr o número de casas decimais (~{:.2f}~)
+    + ~end=''~: não quebra linha ao fim da string
+      + O caractere inserido na atribuição será o que substuirá o fim da string
+    #+begin_src python
+      print("A soma é {}, a divisão é {:.3f} e a multiplicação é {:-^20}".format(5, 4, multiplicacao))
+      print("A soma é {}, a divisão é {:.3f} e a multiplicação é {}".format(s, m, d), end=' ')
+    #+end_src
+** Utilizando módulos
++ Em python, uma biblioteca é importada com o comando ~import~
+  + É possível importar apenas uma função de uma biblioteca, com o comando ~from biblioteca import função~
+  #+begin_src python
+    import random 
+    from math import ceil, truncate
+  #+end_src
+*** math
++ A biblioteca ~math~ possui as funções
+  + ~ceil~: arredonda pra cima
+  + ~floor~: arredonda pra baixo
+  + ~trunc~: ignora as casas decimais
+  + ~pow~: exponenciação
+  + ~sqrt~: raiz quadrada
+  + ~factorial~: fatorial de um número
+*** Manipulando texto
++ Fatiamento
+  + ~cadeia[9]~: retorna o nono caractere da cadeia
+  + ~cadeia[9:13]~: retorna os caracteres 9, 10, 11 e 12 da cadeia
+  + ~cadeia[9:18:2]~: retorna os caracteres 9, 11, 13, 15 e 17 da cadeia
+  + ~cadeia[:13]~: retorna os todos caracteres até o caractere 13
+  + ~cadeia[13:]~: retorna os todos caracteres começando do caractere 13
+  + ~cadeia[9::2]~: retorna dos caracteres 9 ao fim, pulando de dois em dois
++ Análise
+  + ~len(cadeia)~: comprimento da string
+  + ~cadeia.count('a')~: quantas vezes o caractere 'a' aparece na string
+  + ~cadeia.count('a', 0, 13)~: quantas vezes o caractere 'a' aparece na string, entre os caracteres 0 e 13
+  + ~frase.find("car")~: indica onde a substring "car" começa 
+  + Operador ~in~ (~"car" in cadeia~): Operador lógico que retorna se a substring "car" esta contida na string
++ Transformação
+  + ~cadeia.replace("Car", "Rac")~: substitui o "Car" por "Rac" na cadeia
+  + ~cadeia.upper()~: DEIXA TODAS OS CARACTERES MAIÚSCULOS
+  + ~cadeia.lower()~: deixa todas os caracteres minúsculos
+  + ~cadeia.capitalize()~: Apenas o primeiro caracatere da string será maiúsculo
+  + ~cadeia.title()~: Todas As Palavras Começarão Com Letra Maiúscula
+  + ~cadeia.strip()~: remove os espaços inúteis da string (no fim e no começo)
+    + ~cadeia.rstrip()~: remove os espaços inúteis da string no fim da string
+    + ~cadeia.lstrip()~: remove os espaços inúteis da string no início da string
++ Divisão
+  + ~cadeia.split()~: cria uma lista com todas as palavras da string
++ Junção:
+  + ~'-'.join(frase)~: cria uma string com os elementos de uma lista de strings, com '-' como separador
+** Condições
++ Blocos ~if...else~ em Python são idenficados pela indentação
+  #+begin_src python
+    if (True):
+        comandos
+    else (False)
+        resto
+  #+end_src
++ A linguagem possui uma forma simplificada para condições:
+  #+begin_src python
+    variavel = input("Insira variavel")
+    print("True" if variavel<12 else "False")
+    valor = 1 if variavel==True else 0
+  #+end_src
+** Cores no terminal
++ Cores representadas no terminal são feitas por ~\033[estilo;texto;backgorund_colorm~
+  + Códigos de estilo
+    + ~0~: None
+    + ~1~: Bold
+    + ~4~: Underline
+    + ~7~: Negative (cores do background no foreground e vice versa)
+  + Código de cor de texto
+    + ~30~: branco
+    + ~31~: vermelho
+    + ~32~: verde
+    + ~33~: amarelo
+    + ~34~: azul
+    + ~35~: magenta
+    + ~36~: ciano
+    + ~37~: cinza
+  + Códigos de cor de fundo
+    + ~40~: branco
+    + ~41~: vermelho
+    + ~42~: verde
+    + ~43~: amarelo
+    + ~44~: azul
+    + ~45~: magenta
+    + ~46~: ciano
+    + ~47~: cinza
+  #+begin_src python
+    print("\033[0;33;44mHello, World!")[m
+  #+end_src
