@@ -3,4 +3,4 @@ Anotações que faço durante os cursos online que faço
 + [[./Introdução à Ciência da computação com Pyhton/][Introdução à Ciência da Computação com Python]]: elaborado pelo CCLSl IME-USP, [[https://www.coursera.org/learn/ciencia-computacao-python-conceitos/][disponível na Coursera]] (42 HORAS)
 + [[./Fundamentos Matemáticos para Computação][Fundamentos matemáticos para computação]]: elaborado pelo professor Douglas Maioli, [[https://www.youtube.com/playlist?list=PLrOyM49ctTx-HWypJVvn_zMO1o7oOAfVx][disponível no YouTube]] (35 HORAS)
 + [[file:Python: Curso em vídeo/][Python (Curso em Vídeo)]]: elaborado pelo professor Gustavo Guanabara, dividido em 3 partes:
-  + [[file:Python: Curso em vídeo/Mundo 1/][Mundo 1 (Fundamentos)]]: [[https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6][disponível no YouTube]] (40 HORAS)
+  + [[Python: Curso em vídeo/Mundo 1/][Mundo 1 (Fundamentos)]]: [[https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6][disponível no YouTube]] (40 HORAS)
