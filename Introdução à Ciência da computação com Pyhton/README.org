@@ -1,0 +1,51 @@
+#+TITLE: Introdução à Ciência da computação com Python
+#+AUTHOR: Fabio Kon (Universidade de São Paulo)
+#+LANGUAGE: pt
+#+OPTIONS: date:nil
+
+Curso oferecido pela Universidade de São Paulo (USP)
+\newpage
+ 
+* Introdução à Ciência da Computação
+** Semana 1
+**** O que é Ciência da computação?
++ Ciência recente, surgida em meados do Século XX
++ Engloba aspectos de
+  + Matemática
+  + Engenharia
+  + Ciências naturais
+***** Habilidades
++ Resolução de problemas
+  + Formular um problema do mundo real em termos computacionais
+  + Elaborar uma solução
+  + Escrever um programa para verifica
++ Gerenciar software compostos por muitos programas
++ Construir software para lidar com grandes quantidades de dados
++ Gerenciar equipes
++ Comunicar-se com clientes e usuários
+***** Conceitos básicos
++ Algoritmo
+  + Lista de instruções passo a passo para resoulução de problema
++ Linguagem de programação
+  + Linguagens formais, precisas e cujas instruções podem ser executadas por um computador
+  + Linguagens interpretadas (ex. Lisp)
+    + Código fonte é fornecido a um programa chamado interpretador, que traduz as instruções para linguagem de máquina
+  + Linguagens compiladas (ex. C)
+    + Código fonte é fornecida para o compilador, que cria o código objeto, interpretável pela máquina
+    + Arquivo pode ser interpretado por um executor (geralmente, o sistema operacional)
+  + Linguagens interpretadas e compiladas (ex. Python e Java)
+    + Antes da execução do programa, um compilador traduz o código fonte para /bytecode/
+    + Ao excutar o brograma, o interpretador lê os bytecodes
+**** Software livre
++ O software pode e deve ser compartilhado
++ Deve atender 4 liberdades
+  1. Liberdade para executar o programa
+  2. Liberdade para estudar e modificar o programa
+  3. Liberdade para redistribuir o programa
+  4. Liberdade para melhorar e redistribuir as melhorias ao programa
++ Vantagens
+  + Redução de custo e risco
+  + Qualidade potencialmente maior
+  + Permite ao usuário seu fornecedor
+
+** Semana 2
