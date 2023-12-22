@@ -1,0 +1,4 @@
+* Cursos
+Anotações que faço durante os cursos online que faço
++ [[./Introdução à Ciência da computação com Pyhton/][Introdução à Ciência da Computação com Python]]: elaborado pela USP, [[https://www.coursera.org/learn/ciencia-computacao-python-conceitos/][disponível na Coursera]] (42 HORAS)
++ [[./Fundamentos Matemáticos para Computação][Fundamentos matemáticos para computação]]: elaborado pelo professor Douglas Maioli, [[https://www.youtube.com/playlist?list=PLrOyM49ctTx-HWypJVvn_zMO1o7oOAfVx][disponível no Youtube]] (35 HORAS)
