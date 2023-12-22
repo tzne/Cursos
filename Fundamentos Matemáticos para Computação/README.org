@@ -1,0 +1,247 @@
+#+TITLE: Fundamentos Matemáticos para Computação
+#+AUTHOR: Douglas Maioli
+#+LANGUAGE: pt
+#+OPTIONS: date:nil
+
+\newpage
+* TOC :toc:
+- [[#matemática-discreta][Matemática discreta]]
+  - [[#lógica][Lógica]]
+    - [[#proposição-conectivos-lógicos-e-tabela-verdade][Proposição, conectivos lógicos e tabela-verdade]]
+    - [[#fórmulas-tautologia-e-contradição][Fórmulas, tautologia e contradição]]
+    - [[#equivalências-tautológicas][Equivalências tautológicas]]
+    - [[#regras-de-inferência][Regras de inferência]]
+    - [[#predicados-e-quantificadores][Predicados e quantificadores]]
+    - [[#prolog][PROLOG]]
+    - [[#paradoxo][Paradoxo]]
+
+* Matemática discreta
+** Lógica
+*** Proposição, conectivos lógicos e tabela-verdade
++ Proposição: uma sentença completa (sem variáveis abertas) que será considerada *verdadeira* ou *falsa*
+  + Valor lógico
+    + Verdadeiro: 1
+    + Falso: 0
+  + Princípios
+    + Princípio da identidade: uma proposição verdadeira é verdadeira, uma proposição falsa é falsa
+    + Princípio da não-contradição: nenhuma proposição pode ser verdadeira e falsa ao mesmo tempo
+    + Princípio do terceiro-excluído: uma proposição ou será verdadira ou srá falsa: não há outra possibilidade
++ Conectivos
+  |---------------------+----------+------------------------------+----------|
+  | Conectivo           | Símbolos | Lê-se                        | Exemplos |
+  |---------------------+----------+------------------------------+----------|
+  | Negação             | \neg ~ '    | Não                          | \neg p      |
+  | Conjunção           | \wedge .      | E                            | p \wedge q    |
+  | Disjunção inclusiva | \vee +      | Ou                           | p \vee q    |
+  | Disjunção exclusiva | \veebar \oplus      | Ou ... Ou ..., mas não ambos | p \veebar q    |
+  | Condicional         | \Rightarrow \rightarrow      | Se ... Então                 | p \Rightarrow q    |
+  | Bicondicional       | \Leftrightarrow \leftrightarrow      | Se, e somente se             | p \Leftrightarrow q    |
+  |---------------------+----------+------------------------------+----------|
++ Tabela-verdade
+  + A quantidade de linhas de uma tabela verdade são determinadas por \(2^n\), onde \(n\) é o número de proposições
+  + Tabela verdade dos conectivos
+    + AND
+      |---+---+-------|
+      | A | B | A \wedge B |
+      |---+---+-------|
+      | V | V |     V |
+      | V | F |     V |
+      | F | V |     V |
+      | F | F |     F |
+      |---+---+-------|
+    + OR
+      |---+---+-------|
+      | A | B | A \vee B |
+      |---+---+-------|
+      | V | V | V     |
+      | V | F | V     |
+      | F | V | V     |
+      | F | F | F     |
+      |---+---+-------|
+    + XOR
+      |---+---+-------|
+      | A | B | A \veebar B |
+      |---+---+-------|
+      | V | V | F     |
+      | V | F | V     |
+      | F | V | V     |
+      | F | F | F     |
+      |---+---+-------|
+    + NOT
+      |---+----|
+      | A | A' |
+      |---+----|
+      | V | F  |
+      | F | V  |
+      |---+----|
+    + Condicional
+      + Se A então B
+      + A logo B
+      + A somente se B
+      + A é condição suficiente para B
+      + B segue de A
+      + B é condição necessária para A
+      |---+---+-------|
+      | A | B | A \Rightarrow B |
+      |---+---+-------|
+      | V | V | V     |
+      | V | F | F     |
+      | F | V | V     |
+      | F | F | V     |
+      |---+---+-------|
+  + Bicondicional
+    + Equivalência
+    + A se, e somente se, B
+    + A é condição necessária e suficiente para B
+    |---+---+-------|
+    | A | B | A \Leftrightarrow B |
+    |---+---+-------|
+    | V | V | V     |
+    | V | F | F     |
+    | F | V | F     |
+    | F | F | V     |
+    |---+---+-------|
+*** Fórmulas, tautologia e contradição
++ Fórmula bem formulada (WFF): uma cadeia que forma uma expressão válida
++ Ordem de precedência
+  1. Parênteses
+  2. \neg
+  3. \vee, \wedge
+  4. \Rightarrow 
+  5. \Leftrightarrow
++ Conectivo principal: o último conectivo a ser analisado na fórmula
++ Tautologia: uma fórmula que é sempre verdadeira, independentemente dos valores lógicos atribuídos às suas proposições
+  + Exercício: monte a tabela verdade de A \wedge B \Rightarrow B \vee A
+    |---+---+-------+-------+---------------|
+    | A | B | A \wedge B | B \vee A | A \wedge B \Rightarrow B \vee A |
+    |---+---+-------+-------+---------------|
+    | V | V |   V   |   V   |      V        |
+    | V | F |   F   |   V   |      V        |
+    | F | V |   F   |   V   |      V        |
+    | F | F |   F   |   F   |      V        |
+    |---+---+-------+-------+---------------|
++ Contradição: uma fórmula que é sempre falsa, independentemente dos valores lógicos atribuídos às suas proposições
+*** Equivalências tautológicas
++ Equivalência tautológica: se P e Q são duas WFFs e elas são verdeiras exatemante nos mesmos casos, temos que P \Leftrightarrow Q é uma tautologia
+  + Comutatividade
+    + A \wedge B \Leftrightarrow B \wedge A
+    + A \vee B \Leftrightarrow B \vee A
+    + A \veebar B \Leftrightarrow B \veebar A
+  + Associatividade
+    + (A \wedge B) \wedge C \Leftrightarrow A \wedge (B \wedge C)
+    + (A \vee B) \vee C \Leftrightarrow A \vee (B \vee C)
+  + Distributividade
+    + A \vee (B \wedge C) \Leftrightarrow (A \vee B) \wedge (A \vee C)
+    + A \wedge (B \vee C) \Leftrightarrow (A \wedge B) \vee (A \wedge C)
+  + Elemento neutro
+    + A \wedge 1 \Leftrightarrow A
+    + A \vee 0 \Leftrightarrow A
+  + Propriedades do 0 e 1
+    + A \wedge 0 \Leftrightarrow 0
+    + A \vee 1 \Leftrightarrow 1
+  + Propriedades complementares
+    + A \wedge \neg A \Leftrightarrow 0
+    + A \vee \neg A \Rightarrow 1
+  + Lei de morgan
+    + \neg (A \wedge B) \Leftrightarrow \neg A \vee \neg B
+    + \neg (A \vee B) \Leftrightarrow \neg A \wedge \neg B
+  + Definição de equivalência
+    + (A \Rightarrow B) \wedge (B \Rightarrow A) \Leftrightarrow (A \Leftrightarrow B)
+  + Condicional
+    + (A \Leftrightarrow B) \Leftrightarrow \neg A \vee B
+  + Contraposição
+    + (A \Rightarrow B) \Leftrightarrow (\neg B \Rightarrow \neg A)
+  + Dupla negação
+    + \neg (\neg A) \Leftrightarrow A
+*** Regras de inferência
++ Regras de inferência: regras de transformação sintáticas que podem ser usadas para inferir uma conclusão a partir de premissas ou hipóteses, para criar um argumento
+  + Modus ponens
+    + ((A \Rightarrow B) \wedge A) \Rightarrow B
+  + Modus tollens
+    + ((A \Rightarrow B) \wedge \neg B) \Rightarrow \neg A
+  + Conjunção
+    + (A \wedge B) \Rightarrow A \wedge B
+  + Simplificação
+    + (A \wedge B) \Rightarrow A
+    + (A \wedge B) \Rightarrow B
+  + Adição
+    + A \Rightarrow A \vee B
+  + Silogismo hipotético
+    + (A \Rightarrow B) \wedge (B \Rightarrow C) \Rightarrow (A \Rightarrow C)
+  + Silogismo disjuntivo
+    + (\neg A) \wedge (A \vee B) \Rightarrow B
+  + Exportação
+    + ((A \wedge B) \Rightarrow C) \Rightarrow (A \Rightarrow (B \Rightarrow C))
+*** Predicados e quantificadores
++ Predicado: denota uma relação entre objetos de um determiando contexto de discurso
+  + \(P(x): x^2 < 9\)
+  + Domínio: comjunto universo
++ Quantificadores: quantos conjuntos ou elementos no conjunto universo
+  + Quantificador universal (\forall)
+    + (\forall x \in F)P(x) ou (\forall x)[F(x) \Rightarrow P(x)] 
+    + Para todo
+    + Para cada
+    + Para qualquer
+  + Quantificador existencial (\exists)
+    + (\exists x \in F))(x)
+    + Existe
+    + Existe pelo menos um
+    + Para algum
+    + Há algum
+  + Quantificador de existência e unicidade (\exists!)
+    + (\exists! x \in F)P(x) ou (\exists! x)[F(x) \Rightarrow P(x)]
+    + Existe um único
++ Cláusula de Horn: cláusula com no máximo um predicado não negado
+  + Cláusula: disjunção de predicados
+  + \(\neg P_1(x) \vee \neg P_2(x) \vee (P_3(x) \vee Q)\)
++ Negação de quantificadores
+  + Quantificador universal
+    + \neg [(\forall x \in F)P(x)]
+      + \neg(\forall x \in F) \neg P(x)
+        + (\exists x \in F) \neg P(x)
+  + Quantificador existencial
+    + \neg [(\exists x \in C)[P(x) \wedge Q(x)]]
+      + \neg (\exists x \in C) \neg [P(x) \wedge Q(x)]
+        + (\forall x \in C)[\neg [P(x) \vee \neg Q(x)]]
++ Regras de inferência
+  + Particularização universal
+    + De (\forall x)(P(x)), podemos deduzir P(t)
+      + t é uma constante ou uma variável, e se for uma variável não deve estar dentro do escopo de um quantificador de t
+      + "Todos os homens são mortais. Sócrates é homem. Logo, Sócrates é mortal"
+        + H(x): x é um homem
+        + M(x): x é mortal
+        + s: Sócrates
+        + (\forall x)[H(x) \Rightarrow M(x)] \wedge H(s) \Rightarrow M(s)
+          1. (\forall x)[H(x) \Rightarrow M(x)]
+          2. H(s)
+          3. H(s) \Rightarrow M(s)        particularização universal de 1
+          4. M(s)               modus ponens de 2,3
+  + Particularização existencial
+    + De (\exists x)P(x), podemos deduzir P(a)
+      + a é uma constante não utilizada anteriormente na sequência da demonstração nem na conclusão
+  + Generalização existencial
+    + De P(x) ou P(a), podemos deduzir (\exists x)P(x)
+      + Para ir de P(a) para (\exists x)P(x), x não pode aparecer em P(a)
+  + Generalização universal
+    + De P(x), podemos deduzir (\forall x)P(x)
+      + P(x) não pode ser deduzida de nenhuma hipótese na qual x é uma variável livre
+      + P(x) não pode ser deduzida, via equivalências, de uma WFF onde x é uma variável livre
+      + x não pode ser constante
+*** PROLOG
++ Linguagem de programação baseado em lógica de predicados
+  + Processo de computação pode ser visto como uma sequência lógica de inferências
++ Todo comando deve ser finalizado com '.'
++ Variáveis devem ser simbolizadas em letras MAIÚSCULAS
++ Fatos: constatantes que deixam os predicados verdadeiros
+  + Devem ser acrescentados no banco de dados
++ Consultas: feitas no console, onde não podem ser utilizadas variáveias abertas
+  + ~? - fato(x, y).~
+    + Retorna ~True~ ou ~False~
++ Regras: fatos obtidos através de uma WFF, utilizando o predicado com uma variável como argumento
+  + Retorna os resultados que tornam a WFF verdadeira
+  + ~personagem(X)~
+    + Retorana todos os personagens
++ OR: representado por ~;~
++ AND: representado por ~,~
+*** Paradoxo
++ Paradoxo: declaração aparentemente verdadeira que leva a uma contradição lógica, ou a uma situação que contradiz a intuição comum
