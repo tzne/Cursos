@@ -13,6 +13,15 @@
     - [[#predicados-e-quantificadores][Predicados e quantificadores]]
     - [[#prolog][PROLOG]]
     - [[#paradoxo][Paradoxo]]
+  - [[#técnicas-de-demonstrações-matemáticas][Técnicas de demonstrações matemáticas]]
+    - [[#técnicas-de-demonstração][Técnicas de demonstração]]
+      - [[#exaustão][Exaustão]]
+      - [[#direta][Direta]]
+      - [[#contraposição][Contraposição]]
+      - [[#redução-ao-absurdo][Redução ao absurdo]]
+      - [[#indução][Indução]]
+        - [[#primeiro-princípio-de-indução][Primeiro princípio de indução]]
+        - [[#segundo-princípio-de-indução][Segundo princípio de indução]]
 
 * Matemática discreta
 ** Lógica
@@ -244,3 +253,39 @@
 + AND: representado por ~,~
 *** Paradoxo
 + Paradoxo: declaração aparentemente verdadeira que leva a uma contradição lógica, ou a uma situação que contradiz a intuição comum
+** Técnicas de demonstrações matemáticas
++ Teorema: uma afirmação que foi provada como verdadeira, utilizando outras afirmações demonstradas anteriormente
+  + Dado P \Rightarrow Q, se P for verdadeiro e provarmos que Q também será, P \Rightarrow Q torna-se um teorema
+  + Conjectura: Enquanto uma afirmação não é provada, é chamada conjectura
+  + Axiomas: afirmações tão simples que não precisam de demonstrações
++ Um contraexemplo é suficiente para provar que uma afirmação qualquer é falsa
+*** Técnicas de demonstração
++ Em teoremas da forma (P \Leftrightarrow Q), é necessário provar P \Rightarrow Q e Q \Rightarrow P
+**** Exaustão
++ Pouco aplicável
++ Prova-se que a afirmação é verdadeira para todos os possíveis valores de x no domínio
+  + Impossível de ser utilizado em proposições com domínio infinito
+**** Direta
++ Estabelece-se uma sequẽncia de demonstração partindo de P e chegando a Q
+**** Contraposição
++ (P \Rightarrow Q) \Leftrightarrow (\neg Q \Rightarrow \neg P)
+  + Nega-se a conclusão para chegar na negação da premissa
+**** Redução ao absurdo
++ (P \Rightarrow Q) \Leftrightarrow (P \wedge \neg Q \Rightarrow 0)
+  + Se P é verdade, Q também é verdadeiro
++ Nega-se a conclusão para chegar em um absurdo
+  + Uma das premissas derivadas é uma negação de uma das hipóteses
+**** Indução
+***** Primeiro princípio de indução
++ (P(a) é verdade E \((\forall k \in \mathbb{N}^*)[P(k)\ verdade \Rightarrow P(k+1)\ verdade\)) \Rightarrow P(n) é verdadeiro para todos os números inteiros n \geq a
+  + Passo base: P(a) é verdade
+  + Hípotese de indução: \((\forall k \in \mathbb{N}^*)[P(k)\ verdade\)
+  + Passo indutivo: \(P(k+1)\ verdade\)
++ Exemplo: prove que a seguinte relação é verdadeira para todo inteiro positivo n
+  \(1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}\)
+  + Passo básico: \(n = 1\)
+    + \(1 = \frac{1(1+1)}{2} = 1\)
+  + Hipótese de indução: \(1 + 2 + 3 + \cdots + k = \frac{k(k+1)}{2}\)
+  + Passo indutivo: \(1 + 2 + \cdots k + (k+1) = \frac{k(k+1)}{2} + \frac{k+1}{1} = \frac{k(k+1) + 2(k+1)}{2}\)
+***** Segundo princípio de indução 
++ (P(a) é verdade E (\(\forall k \in \mathbb{N}^*\))[P(r) é verdade para todo r E (a \leq r \leq k \Rightarrow P(k+1) verdade)) \Rightarrow P(n é verdadeiro para todos os número inteiros n \geq a)
