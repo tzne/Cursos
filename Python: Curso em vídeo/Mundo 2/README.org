@@ -6,6 +6,8 @@
 * TOC :toc:
 - [[#python-3-estruturas-de-controle][Python 3: estruturas de controle]]
   - [[#condições-aninhadas][Condições aninhadas]]
+  - [[#estruturas-de-repetição][Estruturas de repetição]]
+    - [[#laço-for][Laço ~for~]]
 
 * Python 3: estruturas de controle
 ** Condições aninhadas
@@ -28,3 +30,18 @@
     booleano = 5 < numero <= 10
   #+end_src 
 + A biblioteca *time* possui o comando ~sleep~, que recebe argumentos em segundos
+** Estruturas de repetição
+*** Laço ~for~
++ Laço de variável de controle
+#+begin_src python
+  for i in range(0,10):
+      print(i)
+  print("Fim")
+#+end_src 
+  + O segundo argumento do range não é incluso
+    + range começa em 0 e vai ate < 10
+  + É possível introduzir um terceiro argumento, que indica o número de incrementos em cada repetição
+    #+begin_src python
+      for i in range(0, 10, 2): # imprime os números pares, uma vez que conta de 2 em 2
+          print(i)
+    #+end_src 
