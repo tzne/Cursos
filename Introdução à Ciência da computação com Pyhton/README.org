@@ -4,7 +4,19 @@
 #+OPTIONS: date:nil
 
 Curso oferecido pela Universidade de São Paulo (USP)
- 
+
+* TOC :toc:
+- [[#introdução-à-ciência-da-computação][Introdução à Ciência da Computação]]
+  - [[#semana-1][Semana 1]]
+      - [[#o-que-é-ciência-da-computação][O que é Ciência da computação?]]
+        - [[#habilidades][Habilidades]]
+        - [[#conceitos-básicos][Conceitos básicos]]
+      - [[#software-livre][Software livre]]
+  - [[#semana-3][Semana 3]]
+  - [[#semana-4][Semana 4]]
+    - [[#repetição-com-while][Repetição com while]]
+    - [[#indicadores-de-passagem][Indicadores de passagem]]
+
 * Introdução à Ciência da Computação
 ** Semana 1
 **** O que é Ciência da computação?
@@ -46,5 +58,34 @@ Curso oferecido pela Universidade de São Paulo (USP)
   + Redução de custo e risco
   + Qualidade potencialmente maior
   + Permite ao usuário seu fornecedor
+** Semana 3
++ Operadores booleanos
+  + ~and~
+  + ~or~
+  + ~not~
+** Semana 4
+*** Repetição com while
+#+begin_src python
+  i = 0
+  while (i < 10):
+      print(i)
+      i += 1
+#+end_src 
+*** Indicadores de passagem
++ Variáveis booleanas utilizadas para indicar se uma determinada condição passou a ser verdade ou não
+  #+begin_src python
+    decrescente = True # indicador de passagem
+    anterior = int(input("Digite o primeiro número da sequência: "))
 
-** Semana 2
+    valor = 1
+
+    while ((valor != 0) and decrescente):
+        valor = int(input("Digite o próximo número da sequência: "))
+        if valor > anterior:
+            decrescente = False
+        anterior = valor
+    if (decrescente):
+        print("A sequência está em ordem decrescente")
+    else:
+        print("A sequência não está em ordem decrescente")
+  #+end_src 
