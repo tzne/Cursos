@@ -2,6 +2,12 @@
 #+AUTHOR: Silvia M. Gasparin Colello (UNIVESP)
 #+LANGUAGE: pt
 #+OPTIONS: date:nil
+* TOC :TOC:
+- [[#leitura-e-produção-de-texto][Leitura e produção de texto]]
+  - [[#letramento-e-analfabetismo-funcional][Letramento e analfabetismo funcional]]
+  - [[#leitura-para-além-da-decodificação][Leitura para além da decodificação]]
+  - [[#competências-de-leitura][Competências de leitura]]
+
 * Leitura e produção de texto
 + Língua como dimensão constitutiva
   + Situação interlocutiva
@@ -43,3 +49,39 @@
 + Sistematização em aberto da língua
   + Sistema fechado: normas e regras que restringem o escritor
   + Sistema aberto: permite a expressão infinita do escrir
+** Letramento e analfabetismo funcional
++ No final do século XX, o conceito de alfabetismo se torna mais amplo
++ Magda Soares
+  + *Letramento*: estado ou condiçlão de quem não apenas sabe ler e escrever, mas *cultiva* e *exerce* as práticas sociais que usam a escrita
+  + Alfabetização: ação de ensianr ou escrever
++ A conceituação de letramento permitiu a identificação
+  + das dificuldades da alfabetização brasileira
+  + a dimensão do quadro leitor/escritor nacional
++ Relação entre alfabetizados e letrados pode ser representada pelo indivíduo:
+  + Alfabetizado letrado: conhece (letrado) e faz uso (alfabetizado) do sistema
+  + Não alfabetizado e pouco letrado: conhece pouco o sistema e pouco pode utilizar dele
+  + Analfabetismo funcional
+    + Letrado pouco alfabetizado: conhece o funcionamento da língua
+      + Distante da língua escrita
+    + Alfabetizado pouco letrado: sabe ler e escrever, mas não se insere no mundo letrado
++ Analfabetismo funcional
+  + 27,8 milhões (18,3% da população)
++ Leitor pleno (Inaf): capaz de transitar entre diferentes textos
+  + Aproximadamente 25% da população brasileira
+** Leitura para além da decodificação
++ A leitura do mundo precede a leitura das palavras (Paulo Freire)
++ Todo texto possui uma estrutura aparente e uma estrutura profunda
+  + Estrutura aparente: tangível, o que é claro aos olhos
+  + Estrutura profunda: não está literalmente no texto, mas na significação do leitor com a leitura
+    + Construção de sentido
+** Competências de leitura
++ Reconhecer a língua e ler para além dela
++ Discriminar os símbolos
++ Rrconhecer o código
++ Prever e dialogar com os sentidos
+  + Lidar com ambiguidades
++ Antecepar e conferir informações
++ Articular informações internas do texto
++ Relacionar informações com outros sabereres
++ Relacionar informações com discursos e valores do contexto social
++ Construir significados, buscas informações e encontrar respostas
