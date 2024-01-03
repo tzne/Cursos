@@ -1,0 +1,59 @@
+#+TITLE: Circuitos Digitais
+#+AUTHOR: Pedro Souza
+#+LANGUAGE: pt
+#+OPTIONS: date:nil
+
+* TOC :TOC:
+- [[#circuitos-digitais][Circuitos digitais]]
+  - [[#sistemas-de-numeração][Sistemas de numeração]]
+
+* Circuitos digitais
++ Circuito digital: aquele cujo as entradas e saídas são sinais digitais
++ Sinal analógico /vs/ sinal digital
+  + Sinal analógico: assume infinitos valores de amplitude
+  + Sinal digital: assume valores finitos de amplitude
+    + Geralmente assumem apneas 2 valores (sinal binário)
+      + 1 (Ligado/ALTO)
+      + 0 (Desligado/BAIXO)
+    + Vantagens
+      + Projetos mais simples
+      + Armazenamento de informação mais simples
+      + Mais precisos do que sistemas analógicos
+      + Mais versáteis
+      + Menos vulneráveis ao efeito de ruído
+      + Mais baratos
+      + Permitem a utilização denovas técnicas de processamento digital de sinais
++ Sinais deve ser representados em forma de onda de tensão
+  + Sinal 1 pode ser representado por 5V
+  + Sinal 1 pode ser representado por 0V
++ Como representar sinais analógicos de maneira digital?
+  + Conversão analógico-digital (A/D)
+    + Etapas
+      1. Amostragem: amostrar o sinal
+      2. Quantização: quantizar as amostras
+      3. Codificação: converter as amostras quantizadas em um sinal binário
+  + Conversão D/A
+  + Dados são perdidos durante as conversões
+    
+** Sistemas de numeração
++ Número: forma de representação de quantidades
++ Sistema de numeração: representação de números através de um conjunto de símbolos
+  + Base
+    + Quantidade de dígitos que um sistema possui
+    + Base exponencial do peso de cada dígito para uma composição do número
+  + Sistemas mais comuns
+    + Sistema decimal: base 10
+      + Possui 10 dígitos possívis
+      + Cada dígito é ponderado por um peso na base 10 e com expoente que depende da posição
+      + Difícil aplicação em sistemas digitais
+    + Sistema binário: base 2
+      + Possui 2 dígitos possíveis: 0 e 1
+      + Cada dígito é ponderado por um peso na base 2 e com expoente que depende da posição
+        + /Binary digit/ (*bit*)
+          + Conjunto de 8 bits é chamado byte
+      + Sistema de valor posicional
+        + LSB (bit menos significativo): bit com menor peso
+        + MSB (bit mais significativo): bit com maior peso
+      + Fácil aplicação em sistemas digitais
+        + Apenas 2 níveis de tensão
+    + Sistema hexadecimal
