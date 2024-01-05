@@ -16,6 +16,9 @@ Curso oferecido pela Universidade de São Paulo (USP)
   - [[#semana-4][Semana 4]]
     - [[#repetição-com-while][Repetição com while]]
     - [[#indicadores-de-passagem][Indicadores de passagem]]
+  - [[#semana-5][Semana 5]]
+    - [[#funções][Funções]]
+    - [[#testes-automatizados][Testes automatizados]]
 
 * Introdução à Ciência da Computação
 ** Semana 1
@@ -89,3 +92,28 @@ Curso oferecido pela Universidade de São Paulo (USP)
     else:
         print("A sequência não está em ordem decrescente")
   #+end_src 
+** Semana 5
+*** Funções
++ Função: recebe parâmetros, processa-os e devolve um valor
+  + Método para agrupar linhas de código
+  + Em Python, são definidas com o comando ~def~
+    #+begin_src python
+      def soma(x,y): # cria a função soma que utiliza como parâmetros os valores x e y
+          return x + y # retorna a soma dos parâmetros
+      print(soma(10, 20))
+
+      def escrever(): # define a função escrever que não recebe parâmetros
+          return "hello world"
+
+      def modificar(x, y): # define a função modificar, que não retorna nada
+          x = 'world'
+    #+end_src 
++ Nomes de funções deve ser claros
++ Diferença entre ~print~ e ~return~
+  + ~print~: é uma função que apenas imprime valores na saída padrão
+  + ~return~: encerra a execução da função e vevolve um valor para o código que o chamou
+*** Testes automatizados
++ [[https://docs.pytest.org/en/7.4.x/][pytest]]
+  + Considera que todos os arquivos do tipo ~test_*.py~ e ~*_test.py~ são arquivos de teste
+  + Executa funções e métodos do tipo ~test_*~
+  + Considera classes do tipo ~Test*~
