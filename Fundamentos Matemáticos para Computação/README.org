@@ -22,6 +22,18 @@
       - [[#indução][Indução]]
         - [[#primeiro-princípio-de-indução][Primeiro princípio de indução]]
         - [[#segundo-princípio-de-indução][Segundo princípio de indução]]
+  - [[#demonstração-de-correção][Demonstração de correção]]
+    - [[#tripla-de-hoare][Tripla de Hoare]]
+    - [[#axioma-de-atribuição][Axioma de atribuição]]
+    - [[#regra-condicional][Regra condicional]]
+    - [[#regra-do-laço][Regra do laço]]
+  - [[#recusividade][Recusividade]]
+    - [[#sequência-definida-por-recorrência][Sequência definida por recorrência]]
+    - [[#conjunto-definido-por-recorrência][Conjunto definido por recorrência]]
+    - [[#operações-definidas-por-recorrência][Operações definidas por recorrência]]
+    - [[#algoritmos-definidos-por-recorrência][Algoritmos definidos por recorrência]]
+    - [[#tipos-de-relação-recursiva][Tipos de relação recursiva]]
+    - [[#solução-em-fórmula-fechada][Solução em fórmula fechada]]
 
 * Matemática discreta
 ** Lógica
@@ -289,3 +301,138 @@
   + Passo indutivo: \(1 + 2 + \cdots k + (k+1) = \frac{k(k+1)}{2} + \frac{k+1}{1} = \frac{k(k+1) + 2(k+1)}{2}\)
 ***** Segundo princípio de indução 
 + (P(a) é verdade E (\(\forall k \in \mathbb{N}^*\))[P(r) é verdade para todo r E (a \leq r \leq k \Rightarrow P(k+1) verdade)) \Rightarrow P(n é verdadeiro para todos os número inteiros n \geq a)
+
+** Demonstração de correção
++ Correção de algoritmos
+  + Podem ser verifcados por
+    + Teste do programa
+    + Demonstração de correção: utiliza técnicas de lógica formal
++ Asserções: \(( \forall X) (Q(X) \Rightarrow R(X, P(X)))\)
+  + X: coleção de entradas para um programa P
+  + P transforma x em uma saída Y (Y = P(X))
+  + Q(X): predicado que descreve as condições de entrada
+  + R(X, P(X)): predicado que descreve as condições de saída
+  + Exemplo: P calcula a raíz quadrada de X, obtendo Y
+    + Q(X): X \geq 0
+    + R(X,Y): Y^2 = X \wedge Y \geq 0
+    + (\forall X)(Q(X) \Rightarrow R(X, Y)): \((\forall X \in \mathbb{R}(X \geq 0 \Rightarrow Y^2 = X \wedge Y \geq 0))\)
+*** Tripla de Hoare
++ Método de representação do programa
++ {Q}P{R}
+  + P é o programa
+  + Q(X): predicado que descreve as condições de entrada
+  + R(X, P(X)): predicado que descreve as condições de saída
++ Para um programa com vários comands, utiliza-se a notação:
+  #+DOWNLOADED: https://i.imgur.com/qKsJewd.png @ 2024-01-05 09:27:17
+  [[file:Matemática_discreta/2024-01-05_09-27-17_qKsJewd.png]]
+*** Axioma de atribuição
++ Demonstração de correção
++ Etapas
+  1. Começa-se pela pós-condição (R)
+  2. Executa-se o comando (P)
+  3. Testa a pré-condição (Q)
+*** Regra condicional
++ Necessita de duas [[Tripla de Hoare][triplas de Hoare]]
+  #+begin_src python
+    y = 0
+    if y < y:
+        y = y + 1
+    else:
+        y = 5
+  #+end_src 
+  + Seria escrito como
+    {Y = 0 \wedge Y < 5} Y = Y + 1 {Y = 1}
+
+    {Y = 0 \wedge Y \geq 5} Y = 5{Y = 1}
+    + A segunda tripla (do exemplo) é falsa (y = 0 \wedge y \geq 5)
+*** Regra do laço
++ Laço do tipo
+  #+begin_src
+    enquanto condição B faça
+        P
+    fim_do_enquanto
+  #+end_src
++ Duas [[Tripla de Hoare][triplas de Hoare]] a serem consideradas
+  {Q \wedge B}P{Q}
+
+  Deduzimos \(\{Q\}s_i\{Q \wedge \neg B\}\)
+  + Onde Q é a invariante do laço
+  + Demonstrado por PIF
+** Recusividade
++ Algoritmo que chama a si mesmo
+  + Definição onde o item a ser definido aparece como parte da própria definição
++ Precisa de um caso básico para ser finalizada
+*** Sequência definida por recorrência
++ Sequência: lista de objetos que são numerados em uma determinada ordem
++ Exemplo
+  + Q(1) = 1
+  + Q(n) = 2 Q(n-1), n \geq 2
++ Torre de Hanói: fórmula para determinar a quantidade de movimentos mínimos para se reseolver a Torre de Hanói com n discos, n
+  + H(1) = 1
+  + H(n) = 2 H(n-1) + 1, n \geq 2
++ Sequência de Fibonnacci
+  + F(1) = 1
+  + F(2) = 1
+  + F(n) = F(n-1) + F(n-2), n \geq 3
+*** Conjunto definido por recorrência
++ Conjunto: coleção de objetos onde não há, necessariamente, uma ordem impostas
++ Exemplo: seja F o conjunto das WFFs
+  + Proposições atômicas \in F
+  + Se P e Q \in F, então
+    P \wedge Q, P \vee Q, \neg P, P \Rightarrow Q e P \Leftrightarrow Q também são \in F
+*** Operações definidas por recorrência
++ Fatorial
+  + 0! = 1
+  + a! = a (a - 1)!, a \geq 1
++ Exponenciação
+  + \(a^0 = 1\) 
+  + \(a^n = a \cdot a^{n-1}, n \geq 1\) 
+*** Algoritmos definidos por recorrência
+#+begin_src python
+def fibonacci(n):
+    if ((n == 1) or (n == 2)):
+        return 1
+    elif (n >= 3):
+        return (fibonacci(n - 1) + fibonacci(n - 2))
+    else:
+        print("Valor inválido")
+#+end_src 
+*** Tipos de relação recursiva
++ Linear: os valores anteriores de S que aparecem na fórmula estão na primeira potência
+
+  \(S(n) = f_1(n) \cdot S(n-1) + f_2(n) \cdot S(n - 2) + \cdots + f_k(n) \cdot S(n-k) + g(n)\) 
+  + Linear com *coeficiente constantes* se todos os \(f_1\) são constantes
+
+    \(S(n) = c_1 \cdot S(n-1) + c_2 \cdot S(n - 2) + \cdots + c_3 \cdot S(n-k) + g(n)\) 
+    + Linear com coeficiente constantes de *primeira ordem* se depende apenas do termo n - 1
+
+        \(S(n) = c \cdot S(n-1) + g(n)\) 
+      + Linear com coeficiente constantes de *primeira ordem* homogênea se g(n) = 0
+
+        \(S(n) = c \cdot S(n-1)\) 
+*** Solução em fórmula fechada
++ Economiza memória
++ Uma forma de encontrar uma fórmula fechada para uma função recursiva é Expandir/conjecturar/verificar
+  1. Expandir a fórmula recursiva
+  2. Conjecturar a fórmula fechada
+  3. Verificar se a fórmula fechada encontrada está correta
+     + Geralmente por indução
++ Para todas as fórmulas lineares, de primeira ordem com coeficientes constantes, vale
+  + \(T(n) = c \cdot T(n-1) + g(n)\) 
+  + \(T(n) = c^{n-1} \cdot T(1) + \sum_{i = 2} c^{n - i} \cdot g(i)\)
++ Para todas as fórmulas lineares, homogênea, de segunda ordem com coeficientes constantes, vale
+  + Raízes diferentes
+    + \(T(n) = a \cdot T(n-1) + b \cdot T(n-2)\)
+    + \(T(n) = p \cdot r_1^{n-1} + q \cdot r_2^{n-1}\)
+      + Onde \(r_1\) e \(r_2\) são as raízes de \(x^2 - ax - b\)
+      + Onde p e q são as soluções do sistema
+        \(\left\{\begin{matrix} p & + & q & = & T(1)\\ r_1 p & + & r_2 q & = & T(2) \end{matrix} \right. \)
+  + Uma raiz
+    + \(T(n) = a \cdot T(n-1) + b \cdot T(n-2)\)
+    + \(T(n) = p \cdot r^{n-1} + q \cdot (n-1) \cdot r^{n-1}\)
+      + Onde \(r\) é a raiz de \(x^2 - ax - b\)
+      + Onde p e q são as soluções do sistema
+        \(\left\{\begin{matrix} p & = & T(1)\\ r p & + & r q & = & T(2) \end{matrix} \right. \)
++ Dada a relação recursiva
+  + \(T(n) = c \cdot T(\frac{n}{2}) + g(n), n \geq 2, n = 2^t, t \in \mathbb{N}\)
+  + \(T(n) = c^{log_2(n)} \cdot T(1) + \sum_{i = 1}^{log_2(n)} c^{log_2(n) -i} \cdot g(2^i)\)
