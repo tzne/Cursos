@@ -9,7 +9,7 @@
   - [[#cores-no-terminal][Cores no terminal]]
 
 * Python 3: Fundamentos
-[[./Certificação Curso em Vídeo: Python (Mundo 1).pdf][Certificado de conclusão]]
+[[./Certificado Curso em Vídeo: Python (Mundo 1).pdf][Certificado de conclusão]]
 #+begin_src phyton
   print("Hello World")
 #+end_src

@@ -7,11 +7,12 @@
 - [[#python-3-estruturas-de-controle][Python 3: estruturas de controle]]
   - [[#condições-aninhadas][Condições aninhadas]]
   - [[#estruturas-de-repetição][Estruturas de repetição]]
-    - [[#laço-for][Laço ~for~]]
+    - [[#laço-for][Laço for]]
     - [[#laço-while][Laço while]]
   - [[#fstrings][fstrings]]
 
 * Python 3: estruturas de controle
+[[./Certificado Curso em Vídeo: Python (Mundo 2).pdf][Certificado de conclusão]]
 ** Condições aninhadas
 + Em python, a estrutura condicional possui a possibilidade ~elif~, que significa ~else if~, que pode ser utilizado entre ~if~ e ~else~
   + ~elif~ podem ser acumulados
@@ -34,7 +35,7 @@
 + A biblioteca *time* possui o comando ~sleep~, que recebe argumentos em segundos
 ** Estruturas de repetição
 *** Laço ~for~
-+ Laço de variável de controle
++ Estrutura de repetição de variável de controle
 #+begin_src python
   for i in range(0,10):
       print(i)
