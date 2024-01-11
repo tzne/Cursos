@@ -8,6 +8,8 @@
   - [[#condições-aninhadas][Condições aninhadas]]
   - [[#estruturas-de-repetição][Estruturas de repetição]]
     - [[#laço-for][Laço ~for~]]
+    - [[#laço-while][Laço while]]
+  - [[#fstrings][fstrings]]
 
 * Python 3: estruturas de controle
 ** Condições aninhadas
@@ -45,3 +47,32 @@
       for i in range(0, 10, 2): # imprime os números pares, uma vez que conta de 2 em 2
           print(i)
     #+end_src 
+*** Laço ~while~
++ Estrutura de repetição de teste lógico 
+#+begin_src python
+  while (condicao == True):
+      print("True")
+  print("Fim")
+
+#+end_src 
++ O comando ~break~ sai do laço
+  #+begin_src python
+    while True:
+        print("True")
+        if (condicao == True):
+            break
+    print("Fim")
+  #+end_src 
++ /flag/: sinalizador de fim de laço
+  #+begin_src python
+    # ex064.py 
+     while (numero != 999): # flag
+         soma += numero
+         digitados += 1
+         numero = int(input("Insira um número: "))
+
+     print("Você digitou {} e a soma entre eles foi {}".format(digitados, soma))
+  #+end_src 
+** fstrings
++ No lugar de utilizar ~print("{} blabla".format(variavel))~, é recomendado utilizar ~print(f"{variavel} blabla")~
+  + Interpolação
