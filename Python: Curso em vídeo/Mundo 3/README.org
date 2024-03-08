@@ -1,0 +1,152 @@
+#+TITLE: Python: mundo 2
+#+AUTHOR: Gustavo Guanabara
+#+LANGUAGE: pt
+#+OPTIONS: date:nil
+
+* TOC :toc:
+- [[#python-3-estruturas-compostas][Python 3: estruturas compostas]]
+  - [[#tuplas][Tuplas]]
+  - [[#listas][Listas]]
+
+* Python 3: estruturas compostas
+** Tuplas
++ Variável que armazena mais de um valor
++ Elementos identificaos por índices numéricos
+  + Iniciado em 0
++ *Tuplas são imutáveis*
++ Definidas entre parenteses
++ Aceita elementos de diferentes tipos
+  #+begin_src python
+    tupla = ("primeiroElemento", "segundoElemento", "terceiroElemento", "quartoElemento")
+  #+end_src 
+  + Podem ser declaradas sem, mas são simbolizadas com
++ Podem ser utilizados fatiamentos
+  #+begin_src python
+    print(tupla[2]) # mostra o terceiro elemento da tupla
+    print(tupla[0:2]) # mostra o primeiro e segundo elementos da tupla
+    print(tupla[1:]) # mostra do 1 elemento ate o fim da tupla
+    print(tupla[-1]) # mostra o último elemento da tupla
+    print(tupla[-2]) # mostra o penúltimo elemento da tupla
+  #+end_src 
++ Podem ter o número de elementos exibidos pelo comando ~len()~
+  #+begin_src python
+    len(tupla)
+  #+end_src 
++ Podem ser utilizadas com estruturas de repetição
+  #+begin_src python
+     for i in tupla:
+         print(i) # lista os elementos da tupla a cada repetição
+
+    # funciona tal qual
+
+    for i in range(0, len(tupla)): # porém, tal método facilita a leitura da posição
+        print(f"O elemento da posição {i} é {tupla[i]}")
+
+  #+end_src 
++ O comando ~enumerate~ retorna o elemento e a posição
+  #+begin_src python
+    for posicao, elemento in enumerate(tupla):
+        print(f"O elemento da posição {posicao} é {elemento}")
+  #+end_src   
++ O comando ~sorted~ ordena os elementos da tupla 
+  #+begin_src python
+    print(sorted(tupla)) # imprime os elementos ordenados da tupla
+  #+end_src python
++ É possível unir tuplas
+  #+begin_src python
+    a = (2, 4, 6)
+    b = (4, 2, 5, 6)
+    c = b + a
+    print(c)
+  #+end_src
++ O método ~index~ mostra a posição do elemento dado como parâmetro
+  #+begin_src python
+    print(tupla.index("primeiroElemento")) # imprime a posição de primeiroElemento
+    print(tupla.index(2, 3)) # imprime a posição de 2 encontrada a partir da posição 3
+
+  #+end_src 
++ O comando ~del~ apaga a variável dada como padrão
+  + Útil com tuplas, dada sua imutabilidade
++ Os métodos ~max~ e ~min~ retornam, respectivimente, os valores máximos e mínimos de uma tupla
+  #+begin_src python
+    print(f"O maior valor introduzido foi {max(tuplas)}")
+    print(f"O menor valor introduzido foi {min(tuplas)}")
+#+end_src 
+
+** Listas
++ Diferentemente das tuplas, listas não são imutáveis
++ Denotadas entre colchetes (~[]~)
+  #+begin_src python
+    lista = [elemento0, elemento1, elemento2]
+
+    print(lista[elemento0])
+  #+end_src 
++ Tamanho mutável
+  + Para adicionar elementos ao fim da lista, utiliza-se o método ~append()~
+    #+begin_src python
+      lista.append(elemento3) # adiciona o elemento ao fim da lista
+    #+end_src 
+  + Para adicionar elementos em uma posição arbitrária, utiliza-se o método ~insert(posicao, elemento)~
+    #+begin_src python
+      lista.insert(4, elemento4)
+    #+end_src
+  + Para apagar elementos
+    + Utilização do comando ~del~
+      #+begin_src python
+        del lista[3] # apaga o elemento3 da lista
+      #+end_src
+    + Utilização do método ~pop~
+      #+begin_src python
+        lista.pop() # apaga o último elemento
+
+        lista.pop(2) # apaga o elemento 2 da lista
+      #+end_src 
+    + Utilização do método ~remove~
+      #+begin_src python
+        lista.remove(elemento2) # apaga o elemento2 da lista, reposicionando os outros elementos
+      #+end_src
+        + Checagem se e elemento apagado existe
+          #+begin_src python
+            if elemento2 in lista:
+                lista.remove(elemento2) # apaga o elemento2 da lista, reposicionando os outros elementos
+          #+end_src
++ Pode ser declarada com o comando ~list~
+  #+begin_src python
+    valores = list(range(2, 23)) # cria uma lista com o intervalo ordenado de 2 a 22 
+  #+end_src 
++ O método ~sort~ ordena os itens da lista
+  #+begin_src python
+    valores.sort()
+
+    valores.sort(reverse=True) # ordena de forma reversa
+  #+end_src 
++ Para copiar uma lista em outra, utiliza-se técnicas de fatiamento
+  #+begin_src python
+    a = [elemento1, element2, elemento3]
+    b = a[:] # copia todos os elementos de a para b
+  #+end_src 
+  + Caso contrário (~b = a~), as listas estariam ligadas entre si e a modificação em uma alteraria a outra
++ É possível copiar uma lista para dentro de outra
+  #+begin_src python
+    felipe = ["felipe", "19", "UNESP", "UFSCar"]
+    luis = ["luis ros", "23", "UTFPR", "UNESP"]
+
+    alunos = []
+    alunos.append(felipe[:]) # copia os dados da lista "felipe" para um elemento em "alunos"
+    alunos.append(luis[:]) # copia os dados da lista "luis" para um elemento em "alunos"
+    print(alunos[0]) # retorna ["felipe", "19", "UNESP", "UFSCar"]
+
+    # alternativa:
+    alunos = [["felipe", "19", "UNESP", "UFSCar"], ["luis ros", "23", "UTFPR", "UNESP"]]
+
+    print(alunos[0][0]) # retorna "felipe"
+    print(alunos[1]) # retorna ["luis ros", "23", "UTFPR", "UNESP"]
+
+#+end_src 
++ É possível limpar o conteúdo de uma variável usando o método ~clear()~
+  #+begin_src python
+    pessoa = ["nome", idade]
+
+    pessoa.clear()
+
+#+end_src 
