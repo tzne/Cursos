@@ -1,0 +1,107 @@
+#+TITLE: Linguagem C
+#+AUTHOR: Gustavo Guanabara (Estudonauta)
+#+LANGUAGE: pt
+#+OPTIONS: date:nil
+
+\newpage
+* TOC :TOC:
+- [[#linguagem-c][Linguagem C]]
+  - [[#módulo-00-primeiros-passos][Módulo 00: Primeiros passos]]
+    - [[#apresentação][Apresentação]]
+    - [[#história][História]]
+    - [[#como-funciona][Como funciona]]
+    - [[#hello-world][Hello World]]
+  - [[#módulo-01-estruturas-básicas][Módulo 01: Estruturas básicas]]
+    - [[#mostrando-coisas-na-tela][Mostrando coisas na tela]]
+
+* Linguagem C
+** Módulo 00: Primeiros passos
+*** Apresentação
++ Linguagem de alto nível
+  + Às vezes chamada de "médio nível"
+    + Garante controle sobre a máquina característica da linguagem de baixo nível
++ Paradigma estruturado
++ Linguagem de baixo nível
++ Propósito geral
++ Multiplataforma
+*** História
++ Ken Thompson trabalhando na Bell Labs da AT&T
+  + Decide fazer um "fork" da linguagem BCPL
+    + Surge o B
++ Denis Ritchie passa a trabalhar com Kent Thompson no desenvolvimento de um sistema operacional unificado
+  + Unix
+    + Criam um compilador para a linguagem B para o Unix
+    + Kernel em Assembly
+      + Dificuldades de portabilidade
++ Denis Ritchie decide adaptar o B para facilitar o acesso ao hardware
+  + New B (NB) \rightarrow C
++ Micheal Lesk entra no projeto para padronizar a forma de acesso de entrada e saída
+  + Surge a lib ~<stdio.h>~
++ Brian Kernighan se junta a Ritchie para escrever o manual da linguagem
+*** Como funciona
++ Código fonte é escrito em alto nível
+  + Traduzido em código objeto (baixo nível): *compilação*
+    + Traduzido para linguagem de máquina: *montagem* (assembling)
+*** Hello World
++ O código C tem 2 partes 
+  + Importações e declarações
+  + ~main()~
++ Comando em C terminam em ~;~
++ Blocos em C são delimitados por ~{}~
+#+begin_src C :includes <stdio.h> <stdlib.h>
+  #include <stdio.h> // importa a biblioteca standart I/O
+  #include <stdlib.h> // importa a biblioteca standart lib
+
+  void main() { // sinaliza que a função main não retornará nada
+    // código
+    printf("Hello World\n");
+
+  }
+#+end_src 
+
+#+begin_src C :includes <stdio.h>
+  #include <stdio.h> // importa a biblioteca standart I/O
+
+  void main() {
+    char nome[10];
+    printf("Qual é o seu nome? ");
+    scanf("%s", &nome);
+    printf("Muito prazer em te conhecer %s\n", nome);
+  }
+
+#+end_src 
+
+#+RESULTS:
+: Qual é o seu nome? Muito prazer em te conhecer
+** Módulo 01: Estruturas básicas 
+*** Mostrando coisas na tela
++ O comando ~printf()~ é o principal comando de saída da linguagem
++ Em C, toda string deve estar entre aspas duplas (~""~)
+  #+begin_src C :includes <stdio.h>
+    // printf("Oi\nTudo\nBem?\n");
+    printf("C é\n\"SUPER\"\nFácil!\n");
+  #+end_src 
+
+  #+RESULTS:
+  | C     | é |
+  | SUPER |   |
+  | Fácil |   |
+
++ Caracteres de escape
+  + \n: nova linha
+  + \t: tabulação
+  + \b: backspace
+  + \r: retorno (início da linha atual)
+  + \\: contrabarra
+  + \": aspas
+  + \?: interrogação
+  + \a: beep
+  + %%: %
++ O comando ~setlocale()~ indica o locale do programa
+  #+begin_src C :includes <stdio.h>
+    #include <locale.h>
+    // printf("Oi\nTudo\nBem?\n");
+    setlocale(LC_ALL, "Portuguese");
+    printf("C é\n\"SUPER\"\nFácil!\n");
+
+  #+end_src 

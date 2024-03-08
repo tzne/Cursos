@@ -8,3 +8,4 @@ Anotações que faço durante os cursos online que faço
   + [[./Python: Curso em vídeo/Mundo 3/][Mundo 3 (Estruturas compostas)]]: [[https://www.youtube.com/playlist?list=PLHz_AreHm4dksnH2jVTIVNviIMBVYyFnH][disponível no YouTube]] (15 HORAS)
 + [[./Leitura e produção de texto/][Leitura e Produção de Texto]]: elaborado pela UNIVESP, [[https://www.youtube.com/playlist?list=PLxI8Can9yAHemh_YJh9GtkIUljZbI7Tvw][disponível no YouTube]] (8 HORAS)
 + [[./Circuitos Digitais/][Circuitos Digitais]]: elaborado pelo professor Pedro Souza (UFERSA), [[https://www.youtube.com/playlist?list=PLXyWBo_coJnMYO9Na3t-oYsc2X4kPJBWf][disponível no YoutTube]] (30 HORAS)
++ [[file:Linguagem C - Estudonauta/README.org][Linguagem C]]: elaborado pelo Professor Gustavo Guanabara, disponível Na plataforma Estudonauta
