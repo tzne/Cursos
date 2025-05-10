@@ -1,0 +1,203 @@
+#+TITLE: Java para Iniciantes
+#+AUTHOR: Gustavo Guanabara
+#+LANGUAGE: pt
+#+OPTIONS: date:nil
+
+* História do Java
+- Os primeiros computadores não possuiam uma linguagem de programação específica
+  - Sua programação erafeita pela manipulação de válvulas
+- Com o avanço da computação, surgem as linguagens de alto nível
+  - Compilador gera o código executável a partir do código fonte
+  - Plataformas diferentes exigem compiladores específicos
+- Em 1990, a Sun Microsystems cria um projeto para interligar várias interfaces, com dispositivos diferentes interagindo entre si
+  - Em C++
+  - Liderada por James Gosling
+  - C++ mostra-se insuficiente para o projeto, então decidem criar a própria
+    - Liderada pela equipe GreenTeam
+    - GreenTalk: linguagem com finalidade de intercomunicaçãoa entre dispositivos
+    - GreenTalk torna-se Oak
+    - Criam o *7
+      - Dispositivo para controlar os eletrodomésticos e lâmpadas de toda a casa, com touch screen
+  - Projeto é engavetado em 1992
+- Em 1994 Tim Berns Lee cria o HTML
+  - Restaura o interesse na interligação, agora na Web
+    - Cria-se o WebRunner
+      - Uma espécie de navegador
+      - Objetivava cirar interatividade na Web
+    - Já existia uma linguagem chamada Oak
+      - Renomeiam para Java, em homenagem ao café de Java (café forte)
+        - JavaCoffee
+    - WebRunner torna-se HotJava
+    - JavaRing
+- Java torna-se muito popular
+- Java vai p GPL em 2006
+- Sun é comprado pela Oracle em 2009
+#BEGIN_SRC java
+#BEGIN_SRC java
+* Como Funciona o Java
+- JavaC compila o código fonte para bytecode
+  - Bytecode é independente de plataforma
+- JVM interpreta o bytecode, executando o código
+  - JVM é específico de plataforma
+- WORA: Wrinte Once, Run Anywhere
+- Ambientes
+  - JRE: Java Runtime Environment
+    - JVM
+      - Loader/Verificador
+      - Interpretador/Gerenciaddor
+      - Compilador JIT (Just In Time)
+      - Melhora a performance
+    - Bibliotecas
+  - JDK: Java Development Kit
+    - JRE
+    - JavaLang
+    - JavaTools
+      - JavaC
+      - Debugger
+      - APIs
+
+* Instalando JDK 
+- NetBeans
+  - SE: Standart Edition
+    - Criação de aplicativo com janelas
+  - EE: Enterprise Edition
+    - Acesso remoto
+    - Acesso a grandes bancos de dados
+  - ME: Micro Edition
+    - Dispositivos portáteis, smartphones, wearables, etc
+
+* Primeiro Programa em Java
+#BEGIN_SRC java
+  package helloworld;
+
+  public class HellloWorld {
+    public static void main(String[] args) {
+      System.out.println("Hello World")
+    }
+  }
+#END_SRC java
+  - ~package helloworld~: pacote do programa
+  - ~public class HellloWorld~: clase do pacote
+  - ~public static void main(String[] args)~: método principal do pacote
+- Java é case sensitive
+- Java utiliza CamelCase
+** Nomes de identificadores
+- Se a primeira letra é maiúscula, é uma classe ou interface
+  - ~public class HellloWorld~
+- Se a primeira letra é minúscula, é um atributo, variável ou método
+  - ~println~
+- Nomes de pacotes são inteiros em minúsculas
+  - ~package helloworld~
+- Nomes de constantes são inteiros em MAIÚSCULAS
+
+* Tipos Primitivos e Manipulação de Dados
+** Comentários
+- Java possui 3 tipos de comentários 
+  - Comentários de linha: ~//~
+    #BEGIN_SRC java
+      // Esse é um comentário de uma linha
+    #END_SRC java
+  - Comentários de múltiplas linhas: ~/**/~
+    #BEGIN_SRC java
+      /* 
+       * esse comentário possui muitas
+       * linhas, então podemos escrever
+       * sem se preocupar com o final da linha
+       */
+    #END_SRC java
+  - Comentários de documentação: /** */
+    #BEGIN_SRC java
+      /** 
+         Exemplo de documentação
+         @author  Felipe Canteiro
+         @version 1.0
+         @since 2025-05-08
+      */
+    #END_SRC java
+** Tipos primitivos 
+- Java é uma linguagem fortemente tipada
+#BEGIN_SRC java
+  int ano = 3; // declara uma variável inteira 
+  float salario = 1518.00f;
+  char letra = 'R';
+  boolean casado = false;
+
+  int numero = (int) 24; // typecast
+  float sal = (float) 1518.00;
+  char inicial = (char) 'R';
+  boolean comprometido = (boolean) false;
+
+  Integer geracao = new Integer(24); // declara um objeto da classe Integer
+  Float salMin = new Float(1518.00);
+  Character caractere = new Character('R');
+  Boolean envolvido = new Boolean(false);
+#END_SRC java
+- A palavra chave ~new~ sempre cria um objeto
+- ~Integer/Float/Char/Boolean~ é uma wrapper class
+*** Famílias
+**** Lógico
+- Tipo primitivo: ~boolean~
+  - Wrapper class: ~Boolean~
+  - Tamanho: 1 bit
+**** Literais
+- Tipo primitivo: ~char~
+  - Wrapper class: ~Character~
+  - Tamanho: 1 byte
+- Wrapper Class ~String~
+  - Tamanho: 1 byte por caractere
+**** Inteiros
+- Tipo primitivo: ~byte~
+  - Wrapper class: ~Byte~
+  - Tamanho: 1 byte
+  - Aceita valores até 127
+- Tipo primitivo: ~short~
+  - Wrapper class: ~Short~
+  - Tamanho: 2 bytes
+  - Aceita valores até 32767
+- Tipo primitivo: ~int~
+  - Wrapper class: ~Integer~
+  - Tamanho: 4 bytes
+  - Aceita valores até 2147483
+- Tipo primitivo: ~long~
+  - Wrapper class: ~Long~
+  - Tamanho: 8 bytes
+  - Aceita valores até 2^{63}
+**** Reais
+- Tipo primitivo: ~float~
+  - Wrapper class: ~Float~
+  - Tamanho: 4 bytes
+  - Aceita valores até 3.4e+38
+- Tipo primitivo: ~double~
+  - Wrapper class: ~Double~
+  - Tamanho: 8 bytes
+  - Aceita valores até 1.8e+308
+** Entrada e saída
+*** Saída de dados
+#BEGIN_SRC java
+  int numero = 42;
+  System.out.printf("A resposta é %d\n", nota)
+  System.out.format("A resposta é %d\n", nota)
+#END_SRC java
+- ~printf~: funciona como na linguagem C
+- ~format~: funciona ~printf~
+*** Entrada de dados
+- Utiliza a classe ~java.util.Scanner~
+#BEGIN_SRC java
+  import java.util.Scanner;
+
+  Scanner teclado = new Scanner(System.in);
+
+  System.out.print("Digite seu nome: ");
+  String nome = teclado.nextLine();
+  System.out.print("Digite sua idade: ");
+  String nome = teclado.nextInt();
+  System.out.print("Digite sua nota: ");
+  String nome = teclado.nextFloat();
+
+#END_SRC java
+** Parsing
+#BEGIN_SRC java
+  int idade = 20;
+  String jovialidade = Integer.toString(idade); // necessário pela característica fortemente tipada da linguagem
+  int quantosAnos = Integer.parseInt(jovialidade);
+#END_SRC java
