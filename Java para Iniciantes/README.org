@@ -199,3 +199,12 @@
   String jovialidade = Integer.toString(idade); // necessário pela característica fortemente tipada da linguagem
   int quantosAnos = Integer.parseInt(jovialidade);
 #+END_SRC java
+
+* Operadores Aritméticos e a classe Math
+** Operadores Aritméticos
+- Seguem a ordem de precedência da matemática
+- ~+~: adição
+- ~-~: subtração
+- ~*~: multiplicação
+- ~/~: divisão
+- ~%~: resto
