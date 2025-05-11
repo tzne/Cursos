@@ -32,8 +32,6 @@
 - Java torna-se muito popular
 - Java vai p GPL em 2006
 - Sun é comprado pela Oracle em 2009
-#BEGIN_SRC java
-#BEGIN_SRC java
 * Como Funciona o Java
 - JavaC compila o código fonte para bytecode
   - Bytecode é independente de plataforma
@@ -67,7 +65,7 @@
     - Dispositivos portáteis, smartphones, wearables, etc
 
 * Primeiro Programa em Java
-#BEGIN_SRC java
+#+BEGIN_SRC java
   package helloworld;
 
   public class HellloWorld {
@@ -75,7 +73,7 @@
       System.out.println("Hello World")
     }
   }
-#END_SRC java
+#+END_SRC java
   - ~package helloworld~: pacote do programa
   - ~public class HellloWorld~: clase do pacote
   - ~public static void main(String[] args)~: método principal do pacote
@@ -94,29 +92,29 @@
 ** Comentários
 - Java possui 3 tipos de comentários 
   - Comentários de linha: ~//~
-    #BEGIN_SRC java
+    #+BEGIN_SRC java
       // Esse é um comentário de uma linha
-    #END_SRC java
+    #+END_SRC java
   - Comentários de múltiplas linhas: ~/**/~
-    #BEGIN_SRC java
+    #+BEGIN_SRC java
       /* 
        * esse comentário possui muitas
        * linhas, então podemos escrever
        * sem se preocupar com o final da linha
        */
-    #END_SRC java
+    #+END_SRC java
   - Comentários de documentação: /** */
-    #BEGIN_SRC java
+    #+BEGIN_SRC java
       /** 
          Exemplo de documentação
          @author  Felipe Canteiro
          @version 1.0
          @since 2025-05-08
       */
-    #END_SRC java
+    #+END_SRC java
 ** Tipos primitivos 
 - Java é uma linguagem fortemente tipada
-#BEGIN_SRC java
+#+BEGIN_SRC java
   int ano = 3; // declara uma variável inteira 
   float salario = 1518.00f;
   char letra = 'R';
@@ -131,7 +129,7 @@
   Float salMin = new Float(1518.00);
   Character caractere = new Character('R');
   Boolean envolvido = new Boolean(false);
-#END_SRC java
+#+END_SRC java
 - A palavra chave ~new~ sempre cria um objeto
 - ~Integer/Float/Char/Boolean~ é uma wrapper class
 *** Famílias
@@ -173,16 +171,16 @@
   - Aceita valores até 1.8e+308
 ** Entrada e saída
 *** Saída de dados
-#BEGIN_SRC java
+#+BEGIN_SRC java
   int numero = 42;
   System.out.printf("A resposta é %d\n", nota)
   System.out.format("A resposta é %d\n", nota)
-#END_SRC java
+#+END_SRC java
 - ~printf~: funciona como na linguagem C
 - ~format~: funciona ~printf~
 *** Entrada de dados
 - Utiliza a classe ~java.util.Scanner~
-#BEGIN_SRC java
+#+BEGIN_SRC java
   import java.util.Scanner;
 
   Scanner teclado = new Scanner(System.in);
@@ -194,10 +192,10 @@
   System.out.print("Digite sua nota: ");
   String nome = teclado.nextFloat();
 
-#END_SRC java
+#+END_SRC java
 ** Parsing
-#BEGIN_SRC java
+#+BEGIN_SRC java
   int idade = 20;
   String jovialidade = Integer.toString(idade); // necessário pela característica fortemente tipada da linguagem
   int quantosAnos = Integer.parseInt(jovialidade);
-#END_SRC java
+#+END_SRC java
