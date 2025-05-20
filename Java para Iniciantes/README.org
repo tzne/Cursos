@@ -73,7 +73,7 @@
       System.out.println("Hello World")
     }
   }
-#+END_SRC java
+#+END_SRC
   - ~package helloworld~: pacote do programa
   - ~public class HellloWorld~: clase do pacote
   - ~public static void main(String[] args)~: método principal do pacote
@@ -94,7 +94,7 @@
   - Comentários de linha: ~//~
     #+BEGIN_SRC java
       // Esse é um comentário de uma linha
-    #+END_SRC java
+    #+END_SRC
   - Comentários de múltiplas linhas: ~/**/~
     #+BEGIN_SRC java
       /* 
@@ -102,7 +102,7 @@
        * linhas, então podemos escrever
        * sem se preocupar com o final da linha
        */
-    #+END_SRC java
+    #+END_SRC
   - Comentários de documentação: /** */
     #+BEGIN_SRC java
       /** 
@@ -111,7 +111,7 @@
          @version 1.0
          @since 2025-05-08
       */
-    #+END_SRC java
+    #+END_SRC
 ** Tipos primitivos 
 - Java é uma linguagem fortemente tipada
 #+BEGIN_SRC java
@@ -129,7 +129,7 @@
   Float salMin = new Float(1518.00);
   Character caractere = new Character('R');
   Boolean envolvido = new Boolean(false);
-#+END_SRC java
+#+END_SRC
 - A palavra chave ~new~ sempre cria um objeto
 - ~Integer/Float/Char/Boolean~ é uma wrapper class
 *** Famílias
@@ -175,7 +175,7 @@
   int numero = 42;
   System.out.printf("A resposta é %d\n", nota)
   System.out.format("A resposta é %d\n", nota)
-#+END_SRC java
+#+END_SRC
 - ~printf~: funciona como na linguagem C
 - ~format~: funciona ~printf~
 *** Entrada de dados
@@ -192,13 +192,13 @@
   System.out.print("Digite sua nota: ");
   String nome = teclado.nextFloat();
 
-#+END_SRC java
+#+END_SRC
 ** Parsing
 #+BEGIN_SRC java
   int idade = 20;
   String jovialidade = Integer.toString(idade); // necessário pela característica fortemente tipada da linguagem
   int quantosAnos = Integer.parseInt(jovialidade);
-#+END_SRC java
+#+END_SRC
 
 * Operadores Aritméticos e a classe Math
 ** Operadores Aritméticos
@@ -208,3 +208,271 @@
 - ~*~: multiplicação
 - ~/~: divisão
 - ~%~: resto
+** Operadores unários
+- Asism como em C, a posição do operador faz diferença
+  - Operadores de pré e pós incremento/decremento
+- ~--~: decremento
+- ~++~: incremento
+** Operadores de atribuição
+- ~+=~: somar e atribuir
+- ~-=~: subtração
+- ~*=~: multiplicação
+- ~/=~: divisão
+- ~%=~: resto
+#+BEGIN_SRC java
+a += 1; // a = a + 1  
+#+END_SRC
+** Classe Math
+- Classe possui constantese métodos internos para cálculos matemáticos
+- ~Math.PI~: constante que armazena o valor de pi
+- ~Math.pow()~: de exponenciação
+- ~Math.sqrt()~: raiz quadrada
+- ~Math.cbrt~: raiz cúbica
+- ~Math.abs~: valor absoluto
+- ~Math.floor~: truncamento
+- ~Math.ceil~: arredonda pra cima
+- ~Math.round~: arredondamento aritmético
+- ~Math.random~: gera um valor aleatório entre 0 e 1
+  - Para gerar um número entre um intervalo diferente, utiliza-se a seguinte expressão:
+    - ~inicioIntervalo + Math.random() * (fimIntervalo - inicioIntervalo)~
+#+BEGIN_SRC java
+  Math.pow(11,2); // retorna 121
+  Math.sqrt(121); // retorna 11
+  Math.cbrt(1331); // retorna 11
+  Math.abs(-13.31); // retorna 13.31
+  Math.floor(13.31); // retorna 13
+  Math.ceil(13.31); // retorna 13
+  Math.round(13.31); // retorna 13
+#+END_SRC
+* Operadores lógicos e relacionais
+** Operador ternário
+#+BEGIN_SRC java
+  maior = (n1 > n2) ? n1:n2;
+  
+#+END_SRC
+- ~maior~ recebe ~n1~ se ~n1~ > ~n2~, caso contrário, ~maior~ recebe ~n2~
+  #+BEGIN_SRC java
+    if (n1 > n2) 
+      maior = n1;
+    else
+      maior = n2;
+  #+END_SRC
+** Operadores relacionais
+- ~>~: maior que
+- ~<~: menor que
+- ~>=~: maior ou igual a 
+- ~<=~: menor ou igual a 
+- ~==~: igual a 
+  - No caso de Strings, a JVM não necessariamente cria novos espaços em memória para Strings iguais
+    - Fazendo com que as duas classes apontem para o mesmo lugar, ou seja, iguais
+      #+BEGIN_SRC java
+        String nome1 = "Felipe";
+        String nome2 = "Felipe";
+
+        boolean iguais = (nome1==nome2) ? true:false;
+        System.out.printf("nome1 e nome2 são iguais? %b\n", iguais);
+      #+END_SRC
+  - Porém, caso o operador ~new~ seja utilizado, a JVM cria outro objeto, logo, não são "iguais"
+      #+BEGIN_SRC java
+        String nome1 = "Felipe";
+        String nome3 = new String("Felipe");
+
+        boolean iguais = (nome1==nome3) ? true:false;
+        System.out.printf("nome1 e nome3 são iguais? %b\n", iguais);
+      #+END_SRC
+      - Para contornar isso, utiliza-se o método ~.equals()~
+      #+BEGIN_SRC java
+        String nome1 = "Felipe";
+        String nome3 = new String("Felipe");
+
+        boolean iguais = (nome1.equals(nome3)) ? true:false;
+        System.out.printf("nome1 e nome3 são iguais? %b\n", iguais);
+      #+END_SRC
+- ~!=~: diferente
+** Operadores lógicos
+- ~&&~: AND
+- ~||~: OR
+- ~^~: XOR
+- ~!~: NOT
+* Estruturas condicionais
+- Condicional simples
+  #+BEGIN_SRC java
+    if (media < 6 && media >= 5) {
+      System.out.println("Pac");
+    }
+  #+END_SRC
+- Condicional composta
+  #+BEGIN_SRC java
+    if (media < 6 && media >= 5) {
+      System.out.println("PAC");
+    } else {
+      System.out.println("Aprovado");
+    }
+  #+END_SRC
+- Condicional encadeada
+  #+BEGIN_SRC java
+    if (media < 5)
+      System.out.println("Reprovado");
+    else {
+      if (media < 6) {
+        System.out.println("PAC");
+      } else {
+        System.out.println("Aprovado");
+      }
+    }
+    
+    // EQUIVALENTE A
+
+    if (media < 5)
+      System.out.println("Reprovado");
+    else if (media < 6)
+        System.out.println("PAC");
+    else
+        System.out.println("Aprovado");
+    }
+    
+  #+END_SRC
+- Estrutura ~switch~
+  #+BEGIN_SRC java
+
+    int pernas = entrada.nextInt();
+    String criatura;
+
+    switch (pernas) {
+      case 1:
+        criatura = "Saci";
+        break;
+      case 2:
+        criatura = "Bípede";
+        break;
+      case 4:
+        criatura = "Quadrúpede";
+        break;
+      case 6:
+        criatura = "Inseto";
+        break;
+      case 8:
+        criatura = "Aracnídeo";
+        break;
+      default:
+        criatura = "ET";
+        break;
+    }
+    System.out.println(criatura);
+  #+END_SRC
+  - Assim como na linguagem C, é necessário o comando ~break~ para evitar *falling through*
+  - Diferentemente da linguagem C, o ~switch~ não aceita intervalos
+* Estruturas de repetição
+- Repetição com teste no início: ~while~
+  #+BEGIN_SRC java
+    int contador = 0;
+    while (contador < 16) {
+      contador++;
+      System.out.println(contador);
+    }
+  #+END_SRC
+  - O comando ~continue~ faz com que o loop atual acabe, pulando para a próxima iteração
+    #+BEGIN_SRC java
+      int contador = 0;
+      while (contador < 16) {
+        contador++;
+        if (contador == 12) // printa "doze" e não exibe 12
+          System.out.println("Doze");
+          continue;
+        System.out.println(contador);
+      }
+    #+END_SRC
+  - O comando ~break~ finaliza as iterações, saindo do loop
+    #+BEGIN_SRC java
+      int contador = 0;
+      while (contador < 16) {
+        contador++;
+        if (contador == 12)
+          System.out.println("Saindo...");
+          break;
+        System.out.println(contador);
+      }
+    #+END_SRC
+- Repetição com teste no final: ~do {...} while~
+  #+BEGIN_SRC java
+    int contador = 0;
+    do {
+      contador++;
+      System.out.println(contador);
+    } while (contador < 16) 
+  #+END_SRC
+- Repetição com variável de controle: ~for~
+  #+BEGIN_SRC java
+    for (int i = 0; i <= 5; i++)
+      System.out.println(i);
+  #+END_SRC
+* Vetores
+- Variáveis compostas unidimensionais
+  - Homogêneas: armazenam um único tipo
+- Declarados por
+  #+BEGIN_SRC java
+    int n[] = new int[4]; // declara um vetor de inteiros de 4 posições
+    n[0] = 1;
+    n[1] = 2;
+    n[2] = 3;
+    n[3] = 4;
+
+    // equivalente a 
+
+    int n[] = {1, 2, 3, 4};
+  #+END_SRC
+- Índices se iniciam em 0
+- O atributo ~lenght~ retorna o tamanho de um vetor
+  #+BEGIN_SRC java
+    tamanhoVetorN = n.lenght;
+  #+END_SRC
+** foreach
+- Varre o vetor
+#+BEGIN_SRC java
+  int n[] = {0, 1, 2, 3, 4, 5};
+
+  for (int valor : n)
+    System.out.println(valor);
+#+END_SRC
+  - Inicializa a variável ~valor~ para percorrer o vetor ~n~
+** Classe Arrays
+- O método ~sort~ ordena um vetor
+  #+BEGIN_SRC java
+    int vetor[] = {8, 3, 5, 7, 9, 2};
+    Arrays.sort(vetor); // ordena o vetor e armazena no lugar
+  #+END_SRC
+- O método ~binarySearch~ faz uma busca binária em um vetor, retornando a posição do elemento
+  #+BEGIN_SRC java
+    int num[] = {3, 5, 1, 8, 4};
+    int posicao = Arrays.binarySearch(num, 5) // posicao == 1
+  #+END_SRC
+- O método ~fill~ preenche um vetor com um valor dado como argumento
+  #+BEGIN_SRC java
+    int n[] = new int[4];
+    Arrays.fill(n, 0); // inicializa o vetor n com o valor 0
+  #+END_SRC
+* Métodos
+- Não é possível chamar um método dentro de um método estático se o método não for também estático  
+  - ~static void main()~
+    - Define que é um método da classe, não da instância específica (objeto)
+- A palavra ~public~ define o método como público, acessível para qualquer um
+** Procedimentos
+- Procedimentos são definidos pela palavra chave ~void~
+  #+BEGIN_SRC java
+    void soma(int a, int b) {
+      int s = a + b;
+      System.out.println(s);
+    }
+
+    soma(4, 1);
+  #+END_SRC
+** Funções
+- Possui um tipo de retorno
+  #+BEGIN_SRC java
+    int soma(int a, int b) {
+      int s = a + b;
+      return s;
+    }
+
+    int sm = soma(4, 1);
+  #+END_SRC
