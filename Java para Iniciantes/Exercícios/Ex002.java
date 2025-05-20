@@ -1,5 +1,3 @@
-package ex002;
-
 import java.util.Scanner;
 
 public class Ex002 {
@@ -14,7 +12,6 @@ public class Ex002 {
     float soma = numero1 + numero2;
 
     System.out.printf("%.2f + %.2f = %.2f", numero1, numero2, soma);
-
 
   }
 }
