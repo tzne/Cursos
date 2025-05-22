@@ -1,0 +1,401 @@
+* Programação orientada a objetos
+** O que é Programação orientada a objetos
+- Objetivo: aproximar o mundo digital do mundo real
+*** Histótia
+- Antigamente, a programação era apenas em baixo nível
+  - Linguagem de máquina
+- Surge a programação em alto nível
+  1. Programação linear: instruções sequenciais
+  2. Programação estruturada: possibilitou pequenos pedaços de programação linear que podiam ser executados fora de ordem
+  3. Programação modular: permite a criação de pequenos módulos estruturados valorizando dados e funcionalidades, e armazenar em cápsulas protegidas
+    - Teve sua vida curta pela adoção do paradigma orientado a objeto
+- Alan Kay criou a programação orientada a objetos
+  - Trabalhou na Xerox, no Palo Alto Research Center (PARC)
+    - Prototipou o Dynabook nos anos 70
+      - Espécie de tablet
+      - Não saiu do papel devido a falta de tecnologia para viabilizar o projeto
+      - Criou o Smalltalk durante o projeto
+        - Primeira linguagem de programação orientada a objeto 
+- Linguagens orientadas a objeto
+  - C++
+  - Java
+  - PHP
+  - Python
+  - Ruby
+  - Visual Basic
+- Vantagens
+  - Confiável: o isolamento entre as partes gera software seguro
+    - Ao alterar uma parte, nenhuma outra é alterada
+  - Oportuno: ao dividir tudo em partes, várias delas podem ser desenvolvidas em paralelo
+  - Manutenível: atualizar um software é mais fácil
+    - Uma pequena modificação vai beneficiar todas as partes que usarem o objeto
+  - Extensível: o software não é estático
+    - Ele deve crescer para permanecer útil
+  - Reutilizável: podemos usar objetos de um sistema que criamos em um outro sistema futuro
+  - Natural: mais fácil de entender
+    - Você se preocupa mais na funcionalidade do que nos detalhes de implementação
+** O que é um objeto?
+- Objeto: coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características, comportamentos e estado atual
+  - *Atributos*: características
+  - *Métodos*: comportamentos
+  - *Estado*: estado atual
+- Classe: define os atributos e métodos comuns que serão comportilhados por um objeto
+  - "molde" de um objeto
+- Objeto: instância de uma classe
+- Instanciar: gerar objeto a partir de uma classe
+  #+BEGIN_SRC java
+    caneta1 = new Pen;
+    caneta1.cor = "Azul";
+    caneta1.ponta = 0.5;
+    caneta1.tampada = false;
+    caneta1.rabiscar();
+
+    caneta2 = new Pen;
+    caneta2.cor = "Vermelho";
+    caneta2.ponta = 1;
+    caneta2.tampada = false;
+    caneta2.tampar();
+  #+END_SRC
+- Abstração
+*** Criando classes e objetos em Java
+- A palavra chave ~this~ faz uma autoreferência
+#+BEGIN_SRC java
+  System.out.println("Modelo: " + this.modelo);
+#+END_SRC
+** O que é visibilidade de um objeto?
+- Diagrama de classes
+  - Toda classe é um retângulo
+  |-----------|
+  |   Classe  |
+  |-----------|
+  | atributos |
+  |-----------|
+  | métodos() |
+  |-----------|
+- Modificadores de visibilidade: indicam o nível de acesso aos componentes internos de uma classe
+  - ~+~: público
+    - A classe atual e todas as outras classes têm acesso
+    #+BEGIN_SRC java
+      public var;
+    #+END_SRC
+  - ~-~: privado
+    - Somente a classe atual tem acesso
+    #+BEGIN_SRC java
+      private var;
+    #+END_SRC
+  - ~#~: protegido
+    - Somente a classe atual e suas sub-classes têm acesso
+    #+BEGIN_SRC java
+      protected var;
+    #+END_SRC
+- Em Java, se nenhum modificador de visibilidade é especificado, a visibilidade padrão é *pública para pacotes*
+** Métodos especiais
+- Classe para os exemplos
+  #+BEGIN_SRC java
+    public class Caneta {
+      private String modelo;
+      private float ponta;
+      private boolean tampada;
+      private String cor;
+    }
+  #+END_SRC
+*** Métodos acessores (*Getters*)
+- Métodos que dão acesos a algo
+  - Forma de acessar um atributo sem garantir acesso direto
+- Conseguem acessar um atibuto mantendo a segurança de acesso dele 
+- Exemplo
+  #+BEGIN_SRC java
+    public String getModelo() {
+      return this.modelo;
+    }
+
+    public float getPonta() {
+      return this.ponta;
+    }
+  #+END_SRC
+*** Métodos modificadores (*Setters*)
+- Modificam atributos dentro de um objeto
+  - Forma de modificar um atributo sem garantir acesso direto
+- Geralmente precisam de um parâmetro
+- Exemplo
+  #+BEGIN_SRC java
+    public void setModelo(String modeloString) {
+      this.modelo = modeloString;
+    }
+
+    public void setPonta(float fponta) {
+      this.ponta = fponta;
+    }
+  #+END_SRC
+*** Métodos construtores (*Construct*)
+- Sempre que um objeto for instanciado, as ações e comandos do método construtor são executados
+- Possuem o mesmo nome da Classe
+- Exemplo
+  #+BEGIN_SRC java
+    public Caneta() {
+      this.tampar();
+      this.cor = azul;
+    }
+  #+END_SRC
+** Encapsulamento
+- Pilaress da POO:
+  - Encapsulamento
+  - Herança
+  - Polimorfismo
+- Ocultar partes independentes da implementação, permitindo construir partes invisíveis ao mundo exterior
+  - Possui uma interface
+- Lista de serviços fornecidos por um componente
+  - Contato com o mundo exterior, que define o que pode ser feito com um objeto dessa classe
+- Encapsulamento não é obrigatório, mas uma boa prática de construção de classes
+- Vantagens
+  - Torna mudanças invisíveis
+    - Contanto que a interface não seja alterada, não há mudanças perceptíveis para o usuário 
+  - Facilita a reutilzação de código
+  - Reduzir efeitos colaterais
+- Como encapsular
+  1. Cria-se a interface
+    - Em UML, é como uma classe, porém sem atributos, e com o identificador =<<interface>>=
+    - Todos os métodos são públicos e abstratos (não são implementados na interface)
+    #+BEGIN_SRC java
+      public interface Controlador {
+        public abstract void ligar();
+        public abstract void desligar();
+        public abstract void abrirMenu();
+        public abstract void fecharMenu();
+        public abstract void maisVolume();
+        public abstract void menosVolume();
+        public abstract void ligarMudo();
+        public abstract void desligarMudo();
+        public abstract void play();
+        public abstract void pause();
+      }
+    #+END_SRC
+  2. Cria-se a classe
+    - Em UML, uma seta saindo de uma classe e indo para uma interface significa que a classe implementa a interface
+      - Por consequência, os métodos da interface são implementados na classe
+    - Todos as atributos são privados
+    #+BEGIN_SRC java
+      public class ControleRemoto implements Controlador{
+        // atributos
+        // ...
+        // métodos especiais 
+        // ...
+        // métodos da interface (gerados automaticos)
+        @Override
+        public void ligar() {
+        }
+
+        @Override
+        public void desligar() {
+        }
+
+        @Override
+        public void abrirMenu() {
+        }
+
+        @Override
+        public void fecharMenu() {
+        }
+
+        @Override
+        public void maisVolume() {
+        }
+
+        @Override
+        public void menosVolume() {
+        }
+
+        @Override
+        public void ligarMudo() {
+        }
+
+        @Override
+        public void desligarMudo() {
+        }
+
+        @Override
+        public void play() {
+        }
+
+        @Override
+        public void pause() {
+        }
+
+      }
+    #+END_SRC
+** Relacionamento entre classes
+- Agregação
+  - Em UML, é representada com uma linha sólida com um losango branco na ponta
+  - Possui também tem um papel, que recebe um nome
+    - Ex: um objeto da classe lutador *disputa* uma classe luta
+  - Possui também um sentido
+    - Representado em UML com um triângulo no sentido
+  - A classe agregada deve apontar sua multiplicidade
+    - Ex: quantos lutas cada lutador participa
+  - Relacionamento do tipo "tem um"
+** Herança
+- Permite basear uma nova classe na definição de uma outra classe previamente existente
+- Relacionamentos do tipo "é um"
+- A herança é aplicada tanto para características quanto pra comportamentos
+- Exemplo
+  #+BEGIN_SRC java
+    public class Pessoa {
+      private String nome;
+      private String sexo;
+      private int idade;
+
+      public void fazerAniversario() {}
+    }
+
+    public class Aluno extends Pessoa {
+      private int matricula;
+      private String curso;
+
+      public void cancelarMatricula() {}
+    }
+    public class Funcionario extends Pessoa {
+      private boolean trabalhando;
+      private String setor;
+
+      public void mudarTrabalho() {}
+    }
+    public class Professor extends Pessoa {
+      private float salario;
+      private String especialidade;
+
+      public void receberAumento() {}
+    }
+  #+END_SRC
+  - ~Aluno~, ~Professor~ e ~Funcionario~ herdam os atributos e métodos de ~Pessoa~
+    - ~Pessoa~ é a classe *mãe*/*progenitora*/*superclasse*
+    - ~Aluno~, ~Professor~ e ~Funcionario~ são classes *filhas*/*subclasses*
+*** Herança de implementação
+- Também conhecida como *herança pobre*
+- Quando uma subclasse não possui atributo e métodos próprios, apenas aqueles herdados
+#+BEGIN_SRC java
+  public class Pessoa {
+    private String nome;
+    private String sexo;
+    private int idade;
+
+    public void fazerAniversario() {}
+  }
+
+  public class Visitante extends Pessoa {
+  }
+#+END_SRC
+*** Herança para diferença
+- Também chamada de herança de implementação
+- Quando uma subclasse possui atibutos e métodos próprios
+#+BEGIN_SRC java
+  public class Pessoa {
+    private String nome;
+    private String sexo;
+    private int idade;
+    private float saldo;
+
+    public void fazerAniversario() {}
+  }
+
+  public class Morador extends Pessoa {
+    private int matricula;
+    private String curso;
+
+    public void pagarAluguel(float valor) {
+      this.setSaldo(this.getSaldo() - valor);
+    }
+  }
+#+END_SRC
+- Métodos e atributos podem ser sobrescritos
+  #+BEGIN_SRC java
+    public class MoradorProvisorio extends Morador {
+      @Override
+      public void pagarAluguel(float valor) {
+        this.setSaldo(this.getSaldo() - 4*80);
+    }
+    }
+  #+END_SRC
+*** Abstrato e final
+- Classe *abstrata*: não pode ser instanciada
+
+  ~public abstract class~
+  - Só pode servir como progenitora
+- Método *abstrato*: declarado, mas não implementado na progenitora
+
+  ~public abstract void~
+  - Como ocorre nas interfaces
+  - Só pode der declarado dentro de classes abstratas
+- Classe *final*: não pode ser herdada por outra classe
+
+  ~public final class~
+  - É obrigatoriamente uma folha (não pode ter filhos)
+- Método *final*: não pode ser sobrescrito por suas subclasses
+
+  ~public final void~
+  - Obrigatoriamente herdado
+** Polimorfismo
+- *Assinatura* do método: quantidade e tipo dos parâmetros
+  - Permite identificar um método
+*** Polimorfismo de sobreposição
+- Acontece quando substituimos um método de uma superclasse na sua subclasse, *usando a mesma assinatura*
+- Utiliza o comando ~@Override~
+- Feita em classes diferentes
+#+BEGIN_SRC java
+  public class Morador {
+    private int matricula;
+    private String curso;
+
+    public void pagarAluguel(float valor) {
+      this.setSaldo(this.getSaldo() - valor);
+    }
+  }
+
+  public class MoradorProvisorio extends Morador {
+    @Override
+    public void pagarAluguel(float valor) {
+      this.setSaldo(this.getSaldo() - 4*80);
+    }
+  }
+  #+END_SRC
+*** Polimorfismo de sobrecarga
+- Acontece quando substituimos um método *usando outra assinatura*
+- Feita dentro de uma mesma classe
+#+BEGIN_SRC java
+  public class Cachorro {
+    public void reagir(String frase) {
+      if (frase.equals("Passear") || frase.equals("Olá"))
+        System.out.println("Abanar e latir");
+      else
+        System.out.println("Rosnar");
+    }
+
+    public void reagir(int hora, int minutos) {
+      if (hora < 12)
+        System.out.println("Abanar o rabo");
+      else if (hora >= 18)
+        System.out.println("Ignorar");
+      else
+        System.out.println("Abanar o rabo e latir");
+
+    }
+
+    public void reagir(boolean dono) {
+      if (dono)
+        System.out.println("Abanar o rabo");
+      else
+        System.out.println("Rosnar e latir");
+    }
+
+    public void reagir(int idade, float peso) {
+      if (idade < 5)
+        if (peso < 10)
+          System.out.println("Abanar o rabo");
+        else
+          System.out.println("Latir");
+      else
+        System.out.println("Ignorar");
+    }
+
+    public void reagir(float x, int y) {}
+  }
+#+END_SRC
