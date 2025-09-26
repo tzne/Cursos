@@ -1,0 +1,54 @@
+#+TITLE: HTML5 e CSS3
+#+AUTHOR: Felipe Canteiro
+#+LANGUAGE: pt
+#+DESCRIPTION: Anotações do curso de HTML5 e CSS3 do professor Gustavo Guanabara (Curso em Vídeo)
+#+OPTIONS: date:nil
+#+EXCLUDE_TAGS: noexport
+#+EXPORT_FILE_NAME: /tmp/HTML
+
+\newpage
+
+* TOC :toc_3:noexport:
+- [[#história-da-internet][História da Internet]]
+  - [[#internet-no-brasil][Internet no Brasil]]
+
+* História da Internet
++ Darpa idealiza um modelo de troca e compartilhamento de informações
+  + Decentralização \leftarrow precaução durante a Guerra Fria
+  + ARPAnet
+    + Inicialmente com 4 pacotes
+    + Funcionava através de chaveamento de pacotes
+      + Sistema de transmissão de dados no qual informações são divididas em pequenos pacotes contendo
+        + Trecho dos dados
+        + Endereço do destinatário
+        + Informações que permitem a remontagem da mensagem original
++ 29/10/1969: primeiro "email" da história
+  + Kleinrock tenta enviar "LOGIN" da UCLA, mas o computador na Stanford Research Institute travou após receber o "O"
++ Com a coexistência pacífica entre EUA e URSS, o governo estadunidense passa a permitir pesquisadores na ARPAnet
+  + ARPAnet passa a ter dificuldade de administração pela crescente adoção em universidades
+    + Divisão em 2 redes
+      + MILNET: ligava localidades militares
+      + Nova ARPAnet: localidade não militares
++ Com a presença de diversos computadores nas redes com métodos de comunicação diferente, faz-se necessário substituir o protocolo NCP
+  + Robert Kahn (DARPA) e Vint Cert (Universidade de Stanford)
+    + *Internetworking*
+  + Desenvolvem o protocolo *TCP/IP*
+  + *Flag day* (01/01/1983): protocolo TCP/IP torna-se o único protocolo aprovado pela ARPAnet
++ 1992: Tim Berns-Lee (Cern) criou a World Wide Web, a linguagem HTML e o protocolo HTTP
++ Netscape cria o protocolo HTTPS para criptografia
+  + Motivado para transações comerciais
+
+** Internet no Brasil
++ 1989: Ministério da Ciência e Tecnologia lança a Rede Nacional de Ensino e Pesquisa
+  + Operar uma rede acadêmica de alcance nacional
+  + Capacitar recursos humanos de alta tecnologia e difundir a Internet
+    + Implementação do primeiro backbone do país (1991)
+      + Uso exclusivo da comunidade acadêmica
+  + 1995: backbone é aberto a provedores de acesso comerciais
+  + Ainda em atividade
++ 2000: implementação do backbone RNP2
+  + Objetivava ligar todo o país
+    + Hoje, conecta todos os estados e interliga mais de 300 instituições de ensino superior e pesquisa
++ 2002: RNP torna-se uma organização social
+  + Maior autonomia administrativa
+  + Governo ganha mais meios de avalização e cobrança de resultados
