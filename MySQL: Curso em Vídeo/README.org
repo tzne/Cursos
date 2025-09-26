@@ -1,0 +1,167 @@
+#+TITLE: MySQL
+#+AUTHOR: Felipe Canteiro
+#+LANGUAGE: pt
+#+DESCRIPTION: Anotações do curso de MySQL do professor Gustavo Guanabara (Curso em Vídeo)
+#+OPTIONS: date:nil
+#+EXCLUDE_TAGS: noexport
+#+EXPORT_FILE_NAME: /tmp/MySQL
+
+\newpage
+
+* TOC :toc_3:noexport:
+- [[#história][História]]
+  - [[#história-do-mysql][História do MySQL]]
+- [[#primeiro-banco-de-dados][Primeiro Banco de Dados]]
+  - [[#tipos-primitivos][Tipos primitivos]]
+    - [[#numéricos][Numéricos]]
+    - [[#datatempo][Data/Tempo]]
+    - [[#literal][Literal]]
+    - [[#espacial][Espacial]]
+
+* História
++ Analogia com dados em papel:
+  + Fichas \equiv Registros
+  + Pastas \equiv Tabelas
+  + Armários \equiv Arquivos
++ Final da década de 1950~começo da década de 1960: início da digitalização de dados
+  + Vários fichas concatenadas para leitura sequencial
+    + Fitas magnéticas
+    + *Arquivos sequenciais*
++ Surgimento dos discos
+  + Possibilita acesso não sequencial
+    + Fichas armazenadas com índices
+    + *Acesso direto*
++ Década de 1960: Departamento de Defesa estadunidense passa a pensar soluções para armazenamento seguro de dados
+  + *Codasyl*: evento que reuniu militares, empresas e universidades
+    + Discussão de novas teconologias
+    + Surgimento do COBOL
+      + Primeira linguagem projetada com a lógica de programação *e* os dados que utilizava em mente
+    + Surgimento da tecnologia de Banco de Dados
+      + Composto em 4 partes
+        + Base de dados: onde estão de fato os dados
+          + Armazena dados e estruturas
+        + Sistema gerenciador (*SGBD*/*DBMS*)
+        + Linguagem de exploração
+        + Programas adicionais
++ IBM é muito importante na história dos bancos de dados
+  + Propôs a criação de
+    + dados hierárquicos: *modelo hierárquico*
+    + dados em uma rede inteligente: *modelo de rede*
+  + Ambas soluções dificultavam *relacionamentos*
+    + Edgar Codd propõem o *modelo relacional*
++ Linguagem de acesso ao banco de dados
+  + Surgem chamada "Structured English Query Language"
+    + SEQUEL
+  + *Structured Query Language*
+    + Surge com intenção de ser uma única linguagem, independente de fabricante/implementação
+      + Após a criação de várias variações do SQL, ANSI e ISO padronizam a linguagem
++ Implementações
+  + Gratuitas
+    + MySQL
+    + MariaDB
+    + PostgreSQL
+  + Pagas
+    + Oracle
+    + IBM
+    + dBases
+    + SQL Server (Microsoft)
+      
+** História do MySQL
++ Surge na Suécia em 1994
+  + Micheal Widenius (Monty) e David Axmark criam um modelo de dados gratuito baseado no modelo relacional
+    + Sob a GPL
++ Sun Microsystems compra o MySQL em 2007
++ Sun é comprada pela Oracle em 2009
+  + Monty não gostou e criou um fork: MariaDB
++ Tipos de instrução MySQL
+  + Definição: *DDL*
+    + Estrutura
+    + Criar um banco de dados, criar uma tabela, /etc/
+  + Manipulação: *DML*
+    + Incluir, excluir, manipular dados
+  + Solicitações: *DQL*
+  + Controle: *DCL*
+    + Acesso de usuários, /etc/
+  + Transações: *DTL*
+    + Seguindo os 4 conceitos *DICA*:
+      + Durabilidade: todo dado colocado ou alterado tem que permanecer da mesma maneira
+      + Isolamento: se duas ou mais operações ocorrerem ao mesmo tempo, uma não deve interferir na outra
+      + Consistência: toda transação tem que levar o banco de dados de um estado consistente a outro consistente
+      + Atomicidade: toda transação, ou toda ela acontece ou nada dela acontece
+
+* Primeiro Banco de Dados
++ Objetivo dos bancos de dados é registrar instâncias separadas de coisas com características semelhantes
++ Banco de Dados: coleções de dados de caraterísticas diferentes mas organizadas em um local específico
+  + Locais específicos: tabelas
+    + Guardam dados de coisas com características semelhantes
+      + Características: *campos*
+  + Registros: dados nas tabelas
++ _Bancos de dados são conjuntos de tabelas e tabelas são conjuntos de registros_
++ SQL é /case-insensitive/
+#+begin_src sql
+CREATE DATABASE cadastro; 
+#+end_src
+
+** Tipos primitivos
+#+begin_src sql
+use cadastro; -- utiliza um banco já criado
+
+CREATE TABLE pessoas (
+  nome varchar(30),
+  idade tinyint,
+  sexo char(1),
+  peso float,
+  altura float,
+  nacionalidade varchar(20)
+);
+
+show tables; -- exibe tabelas do banco
+describe pessoas; -- exibe uma tabela (pessoas)
+#+end_src
+*** Numéricos
++ Inteiro
+  + ~TinyInt~
+  + ~SmallInt~
+  + ~Int~
+  + ~MediumInt~
+  + ~BigInt~
++ Real
+  + ~Decimal~
+  + ~Float~
+  + ~Double~
+  + ~Real~
++ Lógico
+  + ~Bit~
+  + ~Boolean~
+*** Data/Tempo
++ ~Date~
++ ~DateTime~
++ ~TimeStamp~
++ ~Time~
++ ~Year~
+*** Literal
++ Caractere
+  + ~Char~: fixo
+    + Aloca todo o tamanho do campo e preenche espaços vazios com espaços (" ")
+  + ~VarChar~: variante
+    + Não utiliza bytes não utilizados
+    + /Até x caracteres/
++ Texto: para textos longos
+  + ~TinyText~
+  + ~Text~
+  + ~MediumText~
+  + ~LongText~
++ Binário: qualquer coisa em binário
+  + ~TinyBlob~
+  + ~Blob~
+  + ~MediumBlob~
+  + ~LongBlob~
++ Coleção
+  + ~Enum~
+  + ~Set~
+*** Espacial
++ ~Geometry~
++ ~Point~
++ ~Polygon~
++ ~MultiPolygon~
+
