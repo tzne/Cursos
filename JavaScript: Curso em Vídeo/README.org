@@ -1,0 +1,50 @@
+#+TITLE: JavaScript
+#+AUTHOR: Felipe Canteiro
+#+LANGUAGE: pt
+#+DESCRIPTION: Anotações do curso de JavaScript do professor Gustavo Guanabara (Curso em Vídeo)
+#+OPTIONS: date:nil
+#+EXCLUDE_TAGS: noexport
+#+EXPORT_FILE_NAME: /tmp/JS
+
+\newpage
+
+* TOC :toc_3:noexport:
+- [[#evolução-do-javascript][Evolução do JavaScript]]
+  - [[#evolução-do-ecmascript][Evolução do ECMAScript]]
+
+* Evolução do JavaScript
++ 1995: Brendan Eich passa a trabalhar na NetScape e cria uma linguagem chamada Mocha
+  + Mesmo tempo que o Java estava surgindo na Sun Microsystems
+    + Ganhou muita notoriedade
+  + JavaScript surge como uma jogada de marketing
++ 1997: Microsoft lança seu "JavaScript próprio" - JScript
+  + Netscape decide padronizar a linguagem
+    + Recorre à empresa europeia de padronização ECMA
+      + Surge o ECMAScript
++ 2002: Netscape perde a guerra dos navegadores e torna-se Fundação Mozilla
++ 2008: Surge o Google Chrome
+  + Engine de JavaScript V8
+    + Gerava código JIT
+    + Open Source
+      + Origina o node.js
+
+** Evolução do ECMAScript
++ 1997: versão 1.0
++ 1998: versão 2.0
+  + Pequenas atualizações
++ 1999: versão 3.0
+  + Interação com regex
+  + =try-catch=
++ Versão 4.0 nunca é lançada
+  + Ambiciosa demais
++ 2009: ES5
+  + Mais popular
+  + Trouxe compatibilidade com json
+  + Suporte a arrays
++ 2015: ES6
+  + Declaradores =let= e =const=
+  + Template strings
++ A partir do ES6, passou a lançar uma versão por ano
+  + ES2016: operador de exponenciação
+  + ES2017: compatibilidade com funções assíncronas
+  + ES2018: novidades em regex e suporte a promises
