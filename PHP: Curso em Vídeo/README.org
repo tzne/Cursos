@@ -1,0 +1,119 @@
+#+TITLE: PHP Moderno
+#+AUTHOR: Felipe Canteiro
+#+LANGUAGE: pt
+#+DESCRIPTION: Anotações do curso de PHP moderno do professor Gustavo Guanabara (Curso em Vídeo)
+#+OPTIONS: date:nil
+#+EXCLUDE_TAGS: noexport
+#+EXPORT_FILE_NAME: /tmp/Redes de Computadores
+
+\newpage
+
+* TOC :toc_3:noexport:
+- [[#evolução-do-php][Evolução do PHP]]
+- [[#versões-do-php][Versões do PHP]]
+  - [[#php-1][PHP 1]]
+  - [[#php-2][PHP 2]]
+  - [[#php-3][PHP 3]]
+  - [[#php-4][PHP 4]]
+  - [[#php-5][PHP 5]]
+  - [[#php-6][PHP 6]]
+  - [[#php-7][PHP 7]]
+  - [[#php-8][PHP 8]]
+
+* Evolução do PHP
++ 1994: Rasmus Lerdorf
+  + Colaborava com os projetos Apache e MySQL
+  + Cria uma CGI em C para contar o número de visitas em seu currículo online
+    + *Personal Home Page*
++ 1995: PHP 1.0 (Personal Home Page Tools)
+  + Interpretador de formulários
+    + *Form Interpreter*
+      + Torna-se Personal Homepage Page Constructor Kit
++ 1996: PHP 2.0
+  + PHP/FI
+  + Integração com banco de dados
+  + Integração com postgres
+  + Integração com MySQL
+  + Suporte a cookies
+  + Suporte a funções de usuário
+  + Rasmus ainda era o principal desenvolvedor
+    + 1996: PHP torna-se open source
++ 1997: Israel Institute of Technology
+  + Andi Gutmans e Zeev Suraski entram em contato com o PHP enquanto desenvolvendo um eCommerce
+    + Tornam-se colaboradores
+      + Reescrevem o PHP
+        + Torna-se uma linguagem
++ 1998: PHP 3
+  + PHP: Hypertext Preprocessor
+  + Colin Viebrock desenvolve a logo do PHP
+  + Vincent Pontier desenvolve o mascote da linguagem
+    + elePHPant
++ 1999: Zeev e Andi fundam a Zend
+  + Zend Engine
+
+    
+* Versões do PHP
+** PHP 1
++ 1994
++ Personal Home Page
++ Funcionalidades simples para um site básico
++ Não era uma linguagem em si
+** PHP 2
++ 1997
++ PHP/FI 2.0
++ Características de uma linguagem standalone
+** PHP 3
++ 1998
++ Primeira versão colaborativa
++ Mais próximo de uma linguagem
++ Extension API
+** PHP 4
++ 2000
++ Zend Engine 1.0
++ Melhoria de performance
++ Aumento da modularização
++ Uso de super globais
+** PHP 5
++ 2004
++ Zend Engine 2.0
++ Maior versão da linguagem
++ Primeira versão com orientação a objetos
++ PHP Data Objects (PDO)
++ Operador de exponenciação
++ Suporte a JSON
++ Namespaces
++ Closures
++ Garbage collection
++ Exceptions handling
++ Novo depurador: phpdbg
+** PHP 6
++ Projetos que não saíram do papel
+  + Aumento da segurança e performance
+  + Suporte nativo a Unicode
++ Nunca recebeu um lançamento oficial
+** PHP 7
++ 2015
++ Zend Engine 3.0
++ Performance até 9x maior
++ Escape codes Unicode
++ Operador null coalescing (=??=)
++ Declaração escalar
++ Operador spaceship (~<=>~)
++ Classes anônimas
++ Exceções modernas
++ Retorno de void
++ Libsodium
++ Foreign function interface
+** PHP 8
++ 2020
++ Zend Engine 4.0
++ Compilador JIT
++ Locale-independent number conversions
++ Named arguments
++ Expressão match
++ Operador nullsafe
++ Enumerations
++ Readonly properties
++ Fibers
+
+  
