@@ -1,0 +1,102 @@
+#+TITLE: Git e GitHub
+#+AUTHOR: Felipe Canteiro
+#+LANGUAGE: pt
+#+DESCRIPTION: Anotações do curso de Git e GitHub do professor Gustavo Guanabara (Curso em Vídeo)
+#+OPTIONS: date:nil
+#+EXCLUDE_TAGS: noexport
+#+EXPORT_FILE_NAME: /tmp/Git
+
+\newpage
+
+* TOC :toc_3:noexport:
+- [[#introdução][Introdução]]
+- [[#evolução][Evolução]]
+
+* Introdução
++ Git: software de controle de versão
+  + Ferramenta de *versionamento*
++ Primeiro software de versionamento surge em 1972
+  + Tinha que ter conexão constante ao servidor
+    + Modelo *centralizado/linear*
+      + CA Software Change Manager (CCC)
+      + Source Code Control System (SCCS)
+      + Panvalet
+      + Concurrent Version System (CVS)
+      + Apache Subversion (SVN)
+      + ClearCase
+      + Visual SourceSafe
+      + Perforce
++ Modelo *distribuído*: uso de repositórios locais e remotos
+  + Mercurial
+  + Bazaar
+  + Code Co-op
+  + GNU Arch (primeiro open source)
+  + Monotone
+  + Fossil
+  + *BitKeeper*
+  + *Git*
++ Vantagens de VCS
+  + Controle de histórico
+  + Trabalho em equipe
+  + Ramificação do projeto
+  + Segurança
+  + Organização
++ GitHub: Repositório remoto
+
+* Evolução
++ CVS: 1985
+  + Centralizado
+  + Open Source
+  + Foi o mais popular por muito tempo
+  + Problemas de _consistência_ e _velocidade_
++ SVN: 2000
+  + Centralizado
+  + Open Source
+  + Semelhante ao CVS, buscava resolver seus problemas
+    + CVS-like
+  + Ainda ativo
++ BitKeeper: 2000
+  + Distribuído
+  + Originalmente proprietário
+    + Hoje é open source
+  + Criador: Larry McVoy
+    + Trabalhava no desenvolvimento do Linux
+      + Foi utilizado no desenvolvimento do kernel por um tempo
+        + Conflitos entre as filosofias open source e proprietário
+          + Richard Stallman reclama (bastante)
+    + Criou uma versão community
+  + *CVS-free*: buscava se distanciar do CVS
+  + 2004: Andrew Tridgell cria o Source Puller
+    + Fez engenharia reversa do BitKeeper
+      + Liberou recursos pagos
+        + Conflito entre McVoy (BitKeeper) e Tridgell (SourcePuller)
+  + 2005: BitKeeper é lançado sob uma nova licença
+    + Bloqueou acesso a metadados
+    + Dificultou o mecanismo de /diff/
+      + Disponível só na versão comercial
+        + Linus se revolta e cria o *Git*
++ Git: 2005 
+  + Distribuído
+  + Open Source
+  + Feito em 10 dias
+  + Como Linus já estava reescrevendo uma solução, priorizou a performance
+  + Significado de Git
+    + "3 letras do alfabeto" fáceis de manipular
+    + Teimoso/cabeça-dura
+      + "Segunda auto-homenagem de Linus"
+    + Global Information Tracker
+    + Goddamn idiotic truckload of shit
++ GitHub: 2008
+  + Proprietário
+  + Hospedagem de código
+  + Baseado em Git
+  + 2009: 46k repositórios
+  + 2010: 1M repositórios e 100k usuários
+  + 2011: ultrapassou o SourceForge
+  + 2013: 5M repositórios e 3M usuários
+  + 2018: maior ataque DDoS da história
+  + 2018: Microsoft compra por $7.5B
+    + Operação independente: Microsoft é apenas dona
+  + 2020: GitHub compra o npm
+  + Octupuss/Octocats: mascote
+    + Mesmo designer do Larry (Twitter)
