@@ -4,13 +4,25 @@
 #+DESCRIPTION: Anotações do curso de HTML5 e CSS3 do professor Gustavo Guanabara (Curso em Vídeo)
 #+OPTIONS: date:nil
 #+EXCLUDE_TAGS: noexport
-#+EXPORT_FILE_NAME: /tmp/HTML
+#+EXPORT_FILE_NAME: /tmp/HTML e CSS
 
 \newpage
 
 * TOC :toc_3:noexport:
 - [[#história-da-internet][História da Internet]]
   - [[#internet-no-brasil][Internet no Brasil]]
+- [[#domínio-e-hospedagem][Domínio e Hospedagem]]
+  - [[#domínio][Domínio]]
+- [[#como-funciona-html-e-css][Como funciona HTML e CSS]]
+  - [[#tags-html][Tags HTML]]
+  - [[#seletores-css][Seletores CSS]]
+  - [[#estrutura-básica-de-um-documento-html][Estrutura básica de um documento HTML]]
+- [[#caracteres-parágrafos-e-quebras-de-linha][Caracteres, parágrafos e quebras de linha]]
+  - [[#parágrafos][Parágrafos]]
+  - [[#html-entities][HTML entities]]
+  - [[#emojis][Emojis]]
+- [[#imagens-e-favicons][Imagens e Favicons]]
+  - [[#][]]
 
 * História da Internet
 + Darpa idealiza um modelo de troca e compartilhamento de informações
@@ -52,3 +64,149 @@
 + 2002: RNP torna-se uma organização social
   + Maior autonomia administrativa
   + Governo ganha mais meios de avalização e cobrança de resultados
+
+* Domínio e Hospedagem
+** Domínio
++ Nome único que identifica um servidor
++ Principal parte da URL
+  + *URL*: Uniform Resource Locator
++ *Top Level Domain* (*TLD*): sufixos dos domínios
+  + Exemplo: =.com=, =.org=, =.gov.br=
+  + *GTLD*: TLDs sem indicação do país (genéricos)
+    + =.com=, =.net=, =.org=, =.io=
+  + *ccTLD*: TLDs com indicação do país (/country code/)
+    + =.com.br=, =.net.es=, =.org.us=, =.io=
++ *Sub-domínio*
+  + =www= da URL
++ *Protocolo* utilizado: incluso antes do subdomínio e do subdomínio
+  + =http://=, =https://=
+    + Indica se o servidor tem ou não segurança *SSL*
++ Caminho do arquivo
+  + Fica depois da _/_ ao fim da URL
+
+* Como funciona HTML e CSS
++ *HTML*: Hypertext Markup Language
+  + *Conteúdo*
+    + Textos
+    + Imagens
+    + Vídeos
+    + Tabelas
+  + Funcionamento baseado em *marcações* (tags)
++ *CSS*: Cascading Style Sheets
+  + *Estilo*
+    + Cores
+    + Sombras
+    + Tamanhos
+    + Posicionamento      
+  + Funcionamento baseado em *seletores*, *propriedades* e *valores*
++ JavaScript
+  + *Interatividade*
+    + Menus
+    + Animações
+    + Popups
+** Tags HTML
++ *Tag*: Conjunto de palavras entre sinais de colchete angular (=<>=)
+  #+begin_src html
+  <p>Exemplo de parágrafo</p>
+  #+end_src
+  + No exemplo a seguir, =<p>= abre a tag e =</p>= fecha
++ Tags podem ter *atributos* e *valores*
+  #+begin_src html
+  <a href="destino.html">Exemplo de link</a>
+  #+end_src
+  + =href= é um *parâmetro* e =destino.html= é um *valor*
++ Tags que não precisam de conteúdo interno não precisam de fechamento
+  + Exemplo: =<br= e =<img>=
+** Seletores CSS
++ Configuram o CSS
+  #+begin_src css
+  p {
+      font-family:Arial;
+      font-size: 12pt;
+      color: blue;
+    }
+  #+end_src
+  + =p=: seletor
+  + =font-family: Arial;=: declaração
+  + =color:=: propriedade
+  + =blue;= valor
++ É necessário =;= ao fim de cada declaração
++ Todas as _propriedades_ devem possuir um _valor_
+  + Separados por =:=
+** Estrutura básica de um documento HTML
+#+begin_src html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
+#+end_src
++ ~<!DOCTYPE html>~: indica que o documento é escrito na versão 5 do HTML
++ ~<html lang="pt-br"> </html>~: delimita o documento HTML
+  + Documento HTML está dividido em _cabeça_ e _corpo_
+  + ~lang="pt-br"~: indica que o conteúdo do site está em português brasileiro
++ ~<head> </head>~: delimitam a cabeça da página
+  + Onde são realizadas configurações iniciais
++ ~<meta charset="UTF-8">~: adiciona codificação UTF-8
+  + Suporte a caracteres acentuados
++ ~<meta name="viewport" content="width=device-width, initial-scale=1.0">~: indica que o conteúdo ocupará todo o espaço disponível na tela e numa escala 1:1
++ ~<title>Document</title>~: define o título da página
+  + Identificação da aba
++ ~<body> </body>~: delimita o corpo da página
+  + Parte que vai aparecer na tela
+* Caracteres, parágrafos e quebras de linha
+** Parágrafos
++ Identificado pelo marcador =<p> </p>=
++ Quebras de linha dentro de um parágrafo não são considerados
+  #+begin_src html
+  <p>Você pode
+      escrever
+      um parágrafo de qualquer jeito.
+      Basta colocar tudo no meio do par de tags &lt;p&gt; e &lt;/p&gt;
+  </p>
+  #+end_src
++ Caso deseje quebrar a linha dentro de um parágrafo, é necessário utilizar a tag =<br>= 
+  #+begin_src html
+  <p>Se precisar quebrar
+      o texto num ligar específico
+      <br> como esse, pode usar a tag &lt;br&gt;
+  </p>
+  #+end_src
+** HTML entities
++ Dentro de tags, por questões de sintaxe da linguagem, não é possível utilizar os caracteres <>
+  + Utilização dos códigos =&lt;p&gt;= e =&lt;/p&gt;=
+|---------+------------------+-----------|
+| Símbolo | Descrição        | /Entity/  |
+|---------+------------------+-----------|
+|         | /whitespace/     | =&nbsp;=  |
+| ®       | Marca registrada | =&reg;=   |
+| ©       | /Copyright/      | =&copy;=  |
+| ™       | /Trade Mark/     | =&trade;= |
+| €       | Euro             | =&euro;=  |
+| £       | Libra (/pound/)  | =&pound;= |
+| ¥       | Yen              | =&yen;=   |
+| ¢       | Cent             | =&cent;=  |
+| ∅       | Vazio            | =&empty;= |
+| ∑       | Soma             | =&sum;=   |
+| Δ       | Delta            | =&Delta;= |
+| ←       | Seta esquerda    | =&larr;=  |
+| ↑       | Seta acima       | =&uarr;=  |
+| →       | Seta direita     | =&rarr;=  |
+| ↓       | Seta baixo       | =&darr;=  |
+|---------+------------------+-----------|
++ [[https://www.w3schools.com/charsets/ref_utf_symbols.asp][Refêrencia (W3Schools)]]
+** Emojis
++ Emojis possuem um código Unicode
++ Substituição =U+= por =&#x=
+  + Exemplo: =U+1F604= \rightarrow =&#x1F604=
++ [[https://emojipedia.org/][Referência (emojipedia)]]
+
+* Imagens e Favicons
+** 
