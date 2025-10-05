@@ -8,7 +8,7 @@
 
 \newpage
 
-* TOC :toc_3:noexport:
+* TOC :toc_2:noexport:
 - [[#história-da-internet][História da Internet]]
   - [[#internet-no-brasil][Internet no Brasil]]
 - [[#domínio-e-hospedagem][Domínio e Hospedagem]]
@@ -19,10 +19,30 @@
   - [[#estrutura-básica-de-um-documento-html][Estrutura básica de um documento HTML]]
 - [[#caracteres-parágrafos-e-quebras-de-linha][Caracteres, parágrafos e quebras de linha]]
   - [[#parágrafos][Parágrafos]]
+  - [[#comentários][Comentários]]
   - [[#html-entities][HTML entities]]
   - [[#emojis][Emojis]]
 - [[#imagens-e-favicons][Imagens e Favicons]]
-  - [[#][]]
+  - [[#formatos-de-imagem][Formatos de imagem]]
+  - [[#como-carregar-uma-imagem-em-html][Como carregar uma imagem em HTML]]
+  - [[#favicon][Favicon]]
+- [[#hierarquia-de-títulos][Hierarquia de títulos]]
+- [[#formatação-de-textos][Formatação de Textos]]
+  - [[#semântica][Semântica]]
+  - [[#negrito-e-itálico][*Negrito* e /Itálico/]]
+  - [[#marca-texto][Marca Texto]]
+  - [[#small][=small=]]
+  - [[#texto-deletado][Texto deletado]]
+  - [[#texto-inserido][Texto inserido]]
+  - [[#sobrescrito-e-subscrito][Sobrescrito e subscrito]]
+  - [[#trechos-de-código][Trechos de código]]
+  - [[#citações][Citações]]
+  - [[#abreviações][Abreviações]]
+  - [[#texto-invertido][Texto invertido]]
+- [[#listas][Listas]]
+  - [[#listas-ordenadas][Listas ordenadas]]
+  - [[#listas-não-ordenadas][Listas não ordenadas]]
+  - [[#listas-de-definições][Listas de definições]]
 
 * História da Internet
 + Darpa idealiza um modelo de troca e compartilhamento de informações
@@ -134,6 +154,7 @@
 + Todas as _propriedades_ devem possuir um _valor_
   + Separados por =:=
 ** Estrutura básica de um documento HTML
++ [[./exercicios/ex001/index.html][ex001]]
 #+begin_src html
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -165,6 +186,7 @@
 ** Parágrafos
 + Identificado pelo marcador =<p> </p>=
 + Quebras de linha dentro de um parágrafo não são considerados
++ [[./exercicios/ex002/index.html][ex002]]
   #+begin_src html
   <p>Você pode
       escrever
@@ -179,28 +201,33 @@
       <br> como esse, pode usar a tag &lt;br&gt;
   </p>
   #+end_src
+** Comentários
++ Comentários ficam entre =<!-- -->=
+  #+begin_src html
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> <!-- isso é um comentário -->
+  #+end_src
 ** HTML entities
 + Dentro de tags, por questões de sintaxe da linguagem, não é possível utilizar os caracteres <>
   + Utilização dos códigos =&lt;p&gt;= e =&lt;/p&gt;=
-|---------+------------------+-----------|
-| Símbolo | Descrição        | /Entity/  |
-|---------+------------------+-----------|
-|         | /whitespace/     | =&nbsp;=  |
-| ®       | Marca registrada | =&reg;=   |
-| ©       | /Copyright/      | =&copy;=  |
-| ™       | /Trade Mark/     | =&trade;= |
-| €       | Euro             | =&euro;=  |
-| £       | Libra (/pound/)  | =&pound;= |
-| ¥       | Yen              | =&yen;=   |
-| ¢       | Cent             | =&cent;=  |
-| ∅       | Vazio            | =&empty;= |
-| ∑       | Soma             | =&sum;=   |
-| Δ       | Delta            | =&Delta;= |
-| ←       | Seta esquerda    | =&larr;=  |
-| ↑       | Seta acima       | =&uarr;=  |
-| →       | Seta direita     | =&rarr;=  |
-| ↓       | Seta baixo       | =&darr;=  |
-|---------+------------------+-----------|
+|---------+------------------+-------------------------|
+| Símbolo | Descrição        | /Entity/                |
+|---------+------------------+-------------------------|
+|         | /whitespace/     | =&nbsp;=                |
+| ®       | Marca registrada | =&reg;=                 |
+| ©       | /Copyright/      | =&copy;=                |
+| ™       | /Trade Mark/     | =&trade;=               |
+| €       | Euro             | =&euro;=                |
+| £       | Libra (/pound/)  | =&pound;=               |
+| ¥       | Yen              | =&yen;=                 |
+| ¢       | Cent             | =&cent;=                |
+| ∅       | Vazio            | =&empty;=               |
+| ∑       | Soma             | =&sum;=                 |
+| Δ       | Delta            | =&Delta;=               |
+| ←       | Seta esquerda    | =&larr;=/=&leftarrow;=  |
+| ↑       | Seta acima       | =&uarr;=/=&uparrow;=    |
+| →       | Seta direita     | =&rarr;=/=&rightarrow;= |
+| ↓       | Seta baixo       | =&darr;=/=&downarrow;=  |
+|---------+------------------+-------------------------|
 + [[https://www.w3schools.com/charsets/ref_utf_symbols.asp][Refêrencia (W3Schools)]]
 ** Emojis
 + Emojis possuem um código Unicode
@@ -209,4 +236,194 @@
 + [[https://emojipedia.org/][Referência (emojipedia)]]
 
 * Imagens e Favicons
-** 
++ Sites de imagens em domínio público:
+  + [[https://unsplash.com/][UnSplash]]
+  + [[https://www.pexels.com/pt-br/][Pexels]]
+  + [[https://www.freepik.es/][FreePik]]
+  + [[https://www.rawpixel.com/][Rawpixel]]
+  + [[https://pixabay.com/pt/][Pixabay]]
+  + [[https://libreshot.com/][Libreshot]]
+  + [[https://commons.wikimedia.org/wiki/Commons:Featured_pictures?uselang=pt-br][Wikimedia Commons]]
+
+** Formatos de imagem
+*** JPEG
++ Usado para gerar imagens fotográficas com tamanho extremamente reduzido
++ Criado por Eric Hamilton em 1983
++ Gerenciado pelo *Joint Photographic Experts Group*
++ Usado amplamente por câmeras digitais e programas de tratamento de imagens
++ _Vantagem_: gera arquivos muito pequenos
+*** PNG
++ *Portable Network Graphics*
++ Desenvolvido pelo W3C em 1996
+  + Buscava substituir o formato *GIF*
++ Formato compactado
+  + Menos que o JPEG
++ Principal característica é a configuração de opacidade de cada pixel
+  + *Transparência*
+** Como carregar uma imagem em HTML
++ [[file:exercicios/ex003/index.html][ex003]]
++ Para carregar imagens, é utilizada a tag =<img>=
+  + Utiliza como parâmetros =src= (*caminho* da imagem) e =alt= (texto alternativo)
+  #+begin_src html
+  <img src="logo-html.png" alt="Logo HTML5">
+  #+end_src
++ É possível carregar imagens a partir de  URLs
+  #+begin_src html
+  <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" alt="Logo JS">
+  #+end_src
++ Textos alternativos ajudam em SEO e são muito importantes na Acessibilidade
+** Favicon
++ Ícones que aparecem ao lado do título de sites
+#+DOWNLOADED: screenshot @ 2025-10-05 13:57:52
+[[file:../../Pictures/foo/Imagens_e_Favicons/2025-10-05_13-57-52_screenshot.png]]
++ Sugerido estar no formato de =.ico=
++ [[./exercicios/ex004/index.html][ex004]]
++ Devem ser especificados dentro da tag =<head>=, com a tag =<link>=
+#+begin_src html
+<head>
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <title>Favicons</title>
+</head>
+#+end_src
++ Formatos suportados
+  + =ico=
+  + =png=
+  + =svg=
+    + Melhor opção, por ser vetorizado
+    + Nem todos os navegadores suportam essa opção
+* Hierarquia de títulos
++ *Headings*
++ Possuem 6 níveis de hierarquia
+  + Vão de =<h1>= a =<h6>=
+* Formatação de Textos
+** Semântica
++ Principal diferença entre o HTML4 e HTML5 é o acréscimo de semântica aos elementos
+  + HTML4 se importava mais com a *forma*
+  + Tags em HTML5 levam um significado embutido
+    + Forma é gerenciada pelo CSS
+** *Negrito* e /Itálico/
++ *Negrito*: =<strong> ... </strong>=
++ /Itálico/: =<em> ... </em>=
+  + /emphasis/
+** Marca Texto
++ Marca-texto: =<mark> ... </mark>=
+** =small=
++ Texto_{pequeno}: =<small> ... </small>=
+** Texto deletado
++ +Texto deletado+: =<del> ... </del>=
+** Texto inserido
++ _Texto inserido_: =<ins> ... </ins>=
+** Sobrescrito e subscrito
++ Texto^{sobrescrito}: =<sup> </sup>=
++ Texto_{subscrito}: =<sub> </sub>=
+** Trechos de código
++ =Trecho de código=: =<code> </code>=
++ Deixa as fontes monoespaçadas
++ Como =<p>=, =<code>= ignora as quebras de linha internas a ele
+  + Resolvido com a tag =<pre>=: mantém o texto pré-formatado
+    + Mantém quebras de linha, espaços e TAB
+    #+begin_src html
+    <h1>Exemplo em Python
+    <pre><code>
+    nome = input("Qual o seu nome?\n")
+    idade = int(input("Qual a sua idade?\n"))
+    print(f"Seu nome é {nome} e você possue {idade} anos")
+    </code></pre>
+    #+end_src
+** Citações
++ Citação inline: =<q> ... </q>=
+  + Já adiciona aspas
++ Citações em bloco: =<blockquote> ... </blockquote=
+  #+BEGIN_QUOTE
+  Everything should be made as simple as possible,
+  but not any simpler -- Albert Einstein
+  #+END_QUOTE
+
+  #+begin_src html
+  <blockquote>
+  Everything should be made as simple as possible,
+  but not any simpler -- Albert Einstein
+  </blockquote>
+  #+end_src
+  + Para citações em bloco, podemos utilizar o parâmetro =cite=  dentro da tag para incluir um link para o texto original
+  <blockquote cite="https://quoteinvestigator.com/2011/05/13/einstein-simple">
+  Everything should be made as simple as possible,
+  but not any simpler -- Albert Einstein
+  </blockquote>
+** Abreviações
++ Delimitado pela tag =<abbr>=
+  #+begin_src html
+  <p> Esse documento fala sobre <abbr title="HyperText Markup Language">HTML</abbr> para criação de sites
+  #+end_src
+  + O parâmetro =title= aponta o significado da sigla
+  + O texto entre a abertura e fechamento das tags será o exibido
+** Texto invertido
++ Indicado pela tag =<bdo> ... </bdo>=
+  + Necessita do parâmetro =dir= para indicar uma das 2 direções:
+    + =rtl=: direita para a esquerda
+    + =ltr=: esquerda para a direita
+* Listas
+** Listas ordenadas
++ Delimitadas com =<ol> ... </ol>=
+   + Itens especificados com =<li> ... </li>=
+     + Possui fechamento opcional
+#+begin_src html
+<ol>
+  <li>Item 1
+  <li>Item 2
+  <li>Item 3
+  <li>Item 4
+  <li>Item 5
+  <li>Item 6
+</ol>
+#+end_src
++ =<ol>= aceita um parâmetro opcional de tipo =type=
+  + ~type="1"~: valor padrão
+    + 1, 2, 3, 4, ...
+  + ~type="A"~: listas alfabéticas em maiúsculas
+    + A, B, C, D, ...
+  + ~type="a"~: listas alfabéticas em minúsculas
+    + a, b, c, d, ...
+  + ~type="I"~: listas com algarismos romanos em maiúsculas
+    + I, II, III, IV, ...
+  + ~type="i"~: listas com algarismos romanos em minúsculas
+    + i, ii, iii, iv, ...
++ O parâmetro =start= especifica o início da lista
+#+begin_src html
+<ol type="i" start="5"> <!-- começa em v -->
+  <li>Item 1
+  <li>Item 2
+  <li>Item 3
+  <li>Item 4
+  <li>Item 5
+  <li>Item 6
+</ol>
+#+end_src
+** Listas não ordenadas
++ Delimitadas com =<ul> ... </ul>=
+  + Tag =<li>= especifica os itens
++ =<ul>= aceita um parâmetro opcional para especificar o marcador: =type=
+    + Padrão
+  + ~type="disc"~: bola preta totalmente pintada
+  + ~type="circle"~: bola com borda preta e sem preenchimento
+  + ~type="square"~: quadrado preto totalmente pintado
+** Listas de definições
++ Funciona com um dicionário: termos e descrições
++ Não possui demarcadores
++ Delimitada por =<dl> ... </dl>=
++ Termo delimitado por =<dt> ... </dt>=
+  + Fechamento opcional
++ Definição delimitada por =<dd> ... </dd>=
+  + Fechamento opcional
+#+begin_src html
+<dl>
+  <dt>HTML</dt>
+  <dd>HyperText Markup Language</dd>
+
+  <dt>CSS</dt>
+  <dd>Cascading Style Sheets</dd>
+
+  <dt>JS</dt>
+  <dd>JavaScript</dd>
+</dl>
+#+end_src
